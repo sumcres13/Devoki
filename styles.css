@@ -1,0 +1,1396 @@
+:root{--cream:#f7f3e9;--paper:#fffdf7;--ink:#153b37;--ink-deep:#0b2b29;--orange:#ef7c1a;--gold:#d6a844;--text:#233a35;--muted:#6c7770;--line:#d9d8c9;--serif:"Noto Serif JP",serif;--sans:"DM Sans","Noto Sans JP",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;color:var(--text);background:var(--cream);font-family:var(--sans);font-size:15px;line-height:1.8;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+::selection{background:var(--orange);color:white}
+.skip-link{position:fixed;top:-100px;left:12px;z-index:100;background:white;color:var(--ink);padding:8px 14px}
+.skip-link:focus{top:12px}
+.container{width:min(100% - 8vw,1220px);margin-inline:auto}
+.container-wide{width:min(100% - 6vw,1450px);margin-inline:auto}
+.section-pad{padding-block:clamp(92px,10vw,150px)}
+section{scroll-margin-top:82px}
+.eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 28px;font-size:11px;font-weight:700;letter-spacing:.2em;line-height:1.5;color:var(--orange)}
+.eyebrow-line{width:34px;height:1px;display:inline-block;flex:none;background:currentColor}
+.section-title{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,4vw,3.8rem);line-height:1.55;letter-spacing:.06em;margin:0;color:var(--ink);line-break:strict;word-break:auto-phrase}
+.body-copy{font-size:15px;line-height:2.35;letter-spacing:.025em}
+.button{display:inline-flex;align-items:center;justify-content:space-between;gap:38px;min-height:58px;padding:12px 27px;border-radius:100px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:background .25s,color .25s,transform .25s,border-color .25s;white-space:nowrap}
+.button:hover{transform:translateY(-3px)}
+.button-primary{background:var(--orange);color:#171a13}
+.button-primary:hover{background:#ffa344}
+.button-ghost{border:1px solid rgba(255,255,255,.72);color:white;background:rgba(255,255,255,.05)}
+.button-ghost:hover{background:white;color:var(--ink)}
+.button-dark{background:var(--ink);color:white;min-width:210px}
+.button-dark:hover{background:#23655b}
+.site-header{position:fixed;z-index:50;top:0;left:0;width:100%;color:white;transition:background .28s,box-shadow .28s,color .28s}
+.site-header.is-scrolled,.site-header.menu-open{background:rgba(247,243,233,.98);box-shadow:0 1px 0 rgba(21,59,55,.12);color:var(--ink)}
+.header-inner{height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:11px;flex:none;min-width:0}
+.brand-logo{width:60px;height:60px;border-radius:50%;background:white;padding:3px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 3px 16px #0002}
+.brand-logo img{width:100%;height:100%;object-fit:contain}
+.brand-name{font-family:Georgia,serif;font-size:19px;font-weight:700;line-height:1.02;letter-spacing:.09em;white-space:nowrap}
+.brand-name span{display:block}
+.brand-name small{display:block;margin-top:5px;font:600 8px/1 var(--sans);letter-spacing:.19em}
+.desktop-nav{display:flex;align-items:center;gap:clamp(16px,2.1vw,34px);margin-left:auto}
+.desktop-nav a{font-size:12px;font-weight:600;letter-spacing:.06em;position:relative;white-space:nowrap}
+.desktop-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:currentColor;transition:right .2s}
+.desktop-nav a:hover::after{right:0}
+.header-actions{display:flex;align-items:center;gap:13px}
+.language-switch{height:38px;padding:0 10px;border:1px solid currentColor;border-radius:100px;background:transparent;color:inherit;font-size:11px;font-weight:700;letter-spacing:.05em;cursor:pointer}
+.language-switch span{margin-left:3px}
+.header-reserve{display:inline-flex;align-items:center;gap:18px;padding:12px 19px;background:var(--orange);border-radius:100px;color:#15251f;font-size:12px;font-weight:700;white-space:nowrap}
+.header-reserve:hover{background:#ffa344}
+.menu-toggle{display:none;width:42px;height:42px;border:0;background:transparent;color:inherit;padding:10px;cursor:pointer}
+.menu-toggle span{display:block;width:22px;height:2px;background:currentColor;margin:5px 0;transition:transform .2s}
+.mobile-nav{display:none}
+.hero{position:relative;min-height:760px;height:100svh;max-height:1080px;background:#13251e;color:white;overflow:hidden}
+.hero-image,.hero-scrim{position:absolute;inset:0}
+.hero-image{background:url("assets/satkar-interior-1.png") center 55%/cover no-repeat;animation:heroZoom 16s ease-out both;backface-visibility:hidden}
+.hero-scrim{background:linear-gradient(180deg,rgba(3,20,19,.62),rgba(3,20,19,.48) 38%,rgba(3,20,19,.70)),linear-gradient(90deg,rgba(3,23,21,.4),transparent 60%)}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.055)}}
+.hero-content{position:relative;z-index:1;height:100%;display:grid;place-items:center;text-align:center;padding-top:80px;padding-bottom:70px}
+.hero-center{max-width:1050px;margin:auto}
+.hero-eyebrow{margin:0 0 26px;color:#f0cc83;font-size:12px;font-weight:700;letter-spacing:.43em;line-height:1.6}
+.hero h1{font-family:var(--serif);font-size:clamp(3.1rem,6.25vw,6.4rem);font-weight:600;line-height:1.22;letter-spacing:.045em;margin:0;text-shadow:0 2px 15px #0004;line-break:strict}
+.hero h1 span{display:block}
+.hero-title-accent{color:#ffab41}
+.hero-title-white{color:#fff;margin-top:.14em}
+.hero-copy{margin:30px auto 34px;font-size:clamp(14px,1.15vw,16px);line-height:2.15;letter-spacing:.06em;color:#fffdf5}
+.hero-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.hero-bottom{position:absolute;z-index:2;left:50%;bottom:32px;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;color:#fff9;font-size:10px;letter-spacing:.14em;font-weight:700}
+.hero-bottom a{color:#fff;display:flex;gap:16px;align-items:center}
+.hero-bottom a span{font-size:20px;line-height:1}
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1.02fr;align-items:center;gap:clamp(50px,7vw,120px)}
+.about-copy{padding-block:10px}
+.about-lead{margin:30px 0 20px;font-family:var(--serif);font-weight:600;color:var(--ink);font-size:clamp(17px,1.7vw,21px);line-height:1.9;letter-spacing:.04em}
+.about .body-copy{max-width:520px;margin:0 0 29px}
+.text-link{display:inline-flex;align-items:center;gap:52px;padding:0 0 10px;font-size:13px;font-weight:700;color:var(--orange);text-decoration:none}
+.text-link span:last-child{font-size:18px;line-height:1}
+.about-visual{position:relative;margin:15px 25px 0 0}
+.about-visual::before{content:"";position:absolute;left:28px;right:-25px;top:-25px;bottom:28px;border:1px solid var(--gold);z-index:0}
+.about-visual>img{position:relative;z-index:1;width:100%;height:min(46vw,540px);object-fit:cover;object-position:center}
+.about-stamp{position:absolute;z-index:2;bottom:-25px;left:-32px;background:var(--orange);color:var(--ink-deep);width:130px;height:130px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-13deg);font:700 11px/1.4 var(--sans);letter-spacing:.1em;box-shadow:0 8px 20px #0002}
+.stamp-flower{font-size:26px;line-height:1.1}
+.feature{background:var(--ink-deep);color:white;overflow:hidden}
+.feature-heading{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;margin-bottom:48px}
+.feature-heading .eyebrow{grid-column:1/-1;margin-bottom:0;color:#e1af55}
+.feature-heading .section-title{color:white}
+.feature-heading>p:last-child{margin:0 0 7px;font-size:14px;color:#d7e1d8}
+.feature-card{display:grid;grid-template-columns:1.13fr .87fr;min-height:550px;background:#f7f3e9;color:var(--ink);box-shadow:0 20px 65px #001b1740}
+.feature-photo{position:relative;min-height:400px;overflow:hidden}
+.feature-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;transition:transform .7s}
+.feature-card:hover .feature-photo img{transform:scale(1.035)}
+.image-note{position:absolute;bottom:17px;left:20px;color:white;background:#092d2bc9;padding:4px 9px;font-size:10px;letter-spacing:.03em}
+.feature-content{position:relative;padding:clamp(38px,5vw,78px);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.feature-number{font-size:11px;font-weight:700;letter-spacing:.23em;color:var(--orange)}
+.feature-symbol{position:absolute;right:47px;top:25px;color:#e3cda6;font-size:100px;line-height:1;font-weight:400;opacity:.65}
+.feature-content h3{position:relative;font:600 clamp(2rem,3.1vw,3rem)/1.5 var(--serif);letter-spacing:.07em;margin:35px 0 24px}
+.feature-exact{font-size:16px;font-weight:600;line-height:2.15;letter-spacing:.02em;margin:0;line-break:strict;overflow-wrap:anywhere}
+.feature-rule{width:64px;height:2px;background:var(--orange);margin:30px 0 20px}
+.feature-small{font-size:13px;color:#657872;margin:0}
+.secondary-feature{display:flex;align-items:center;justify-content:flex-end;gap:30px;margin-top:30px;color:white}
+.secondary-feature img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:4px solid #fff2}
+.secondary-feature span{font-size:10px;font-weight:700;letter-spacing:.2em;color:#e1af55}
+.secondary-feature p{font-family:var(--serif);font-size:16px;line-height:1.9;margin:5px 0 0}
+.message{background:#f0e9d9}
+.message-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(50px,7.5vw,120px);align-items:center}
+.message-photo{position:relative;max-width:475px}
+.message-photo::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--gold)}
+.message-photo img{position:relative;width:100%;aspect-ratio:4/4.4;object-fit:cover;object-position:center 30%}
+.message-copy .section-title{font-size:clamp(2rem,3vw,3.1rem)}
+.message-copy .body-copy{max-width:590px;margin:30px 0;line-height:2.3}
+.signature{display:flex;flex-direction:column;gap:4px;padding-top:21px;border-top:1px solid #cfc8b9;font-size:12px}
+.signature strong{font-family:var(--serif);font-size:20px;letter-spacing:.08em}
+.store{background:var(--paper)}
+.store-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:35px;margin-bottom:49px}
+.store-heading>p{margin:0 0 8px;text-align:right;font-weight:600;font-size:14px;line-height:2}
+.store-grid{display:grid;grid-template-columns:1fr 1fr;background:var(--cream)}
+.store-image{min-height:580px;overflow:hidden}
+.store-image img{width:100%;height:100%;object-fit:cover;object-position:center 49%}
+.store-details{padding:clamp(35px,5.2vw,76px);align-self:center}
+.store-kicker{color:var(--orange);font-size:11px;font-weight:700;letter-spacing:.24em;margin:0 0 20px}
+.store-details h3{font:600 clamp(1.65rem,2.5vw,2.7rem)/1.65 var(--serif);letter-spacing:.05em;margin:0 0 30px;color:var(--ink)}
+.store-details dl{margin:0 0 38px;border-top:1px solid var(--line)}
+.store-details dl div{display:grid;grid-template-columns:105px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.8}
+.store-details dt{font-weight:700;color:var(--ink)}
+.store-details dd{margin:0}
+.store-details dd a{text-decoration:underline;text-underline-offset:3px}
+.gallery{background:var(--paper);padding:0 0 clamp(90px,9vw,135px)}
+.gallery-heading{text-align:center;padding-top:15px;padding-bottom:35px}
+.gallery-heading .eyebrow{justify-content:center;margin-bottom:13px}
+.gallery-heading h2{font:600 clamp(1.7rem,2.8vw,2.8rem)/1.5 var(--serif);letter-spacing:.07em;color:var(--ink);margin:0}
+.gallery-stage{position:relative;width:min(100% - 8vw,1050px);aspect-ratio:16/8.5;margin:auto;overflow:hidden;background:var(--ink-deep)}
+.gallery-slide{position:absolute;inset:0;opacity:0;transition:opacity .65s;pointer-events:none}
+.gallery-slide.is-active{opacity:1;pointer-events:auto}
+.gallery-slide::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#061d1bb8)}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;object-position:center 52%}
+.gallery-slide:nth-child(2) img{object-position:center 46%}
+.gallery-slide span{position:absolute;z-index:1;bottom:36px;left:42px;color:white;font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.08em}
+.gallery-arrow{position:absolute;z-index:2;top:50%;transform:translateY(-50%);width:48px;height:48px;border:1px solid #fffc;color:white;border-radius:50%;background:#092f2e99;font-size:21px;cursor:pointer}
+.gallery-prev{left:22px}.gallery-next{right:22px}
+.gallery-arrow:hover{background:var(--orange);color:var(--ink)}
+.gallery-dots{position:absolute;z-index:3;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.gallery-dots button{width:24px;height:3px;padding:0;border:0;background:#fff7;cursor:pointer}
+.gallery-dots button.is-active{background:var(--orange)}
+.reservation{position:relative;color:white;overflow:hidden;background:var(--ink-deep)}
+.reservation-backdrop{position:absolute;inset:0;background:linear-gradient(90deg,#092923f5 0%,#092923e6 50%,#092923c2 100%),url("assets/satkar-interior-1.png") center/cover}
+.reservation-content{position:relative;z-index:1}
+.reservation .eyebrow{color:#edb760}
+.reservation .section-title{color:white}
+.reservation-content>p:not(.eyebrow){font-size:15px;margin:23px 0 53px;color:#e2e7dd}
+.reservation-groups{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.reservation-groups h3{font:600 18px/1.5 var(--serif);margin:0 0 16px;padding-bottom:15px;border-bottom:1px solid #ffffff55}
+.action-links{display:flex;flex-wrap:wrap;gap:12px}
+.action-links a{display:inline-flex;align-items:center;gap:16px;min-height:48px;padding:9px 17px;border:1px solid #ffffff8c;border-radius:5px;color:white;font-size:12px;font-weight:700;transition:background .2s,color .2s}
+.action-links a:hover{background:#fff;color:var(--ink)}
+.site-footer{background:#082b29;color:#e9efe8;padding:76px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.15fr 1fr .65fr;gap:70px;padding-bottom:70px}
+.footer-brand>a:first-child{font:700 clamp(1.5rem,2.5vw,2.2rem)/1 Georgia,serif;letter-spacing:.08em}
+.footer-brand p{font-family:var(--serif);margin:24px 0;color:#e7e6d6}
+.footer-grid h2{font-size:11px;font-weight:700;letter-spacing:.22em;color:#e6a94c;margin:0 0 21px}
+.footer-grid p,.footer-grid a:not(.footer-brand>a:first-child){font-size:12px;line-height:2.1}
+.footer-grid>div:nth-child(2)>p{margin:0 0 10px}
+.footer-nav a{display:block;width:max-content;margin-bottom:5px}
+.footer-nav a:hover,.footer-grid>div:nth-child(2)>a:hover{color:#ffb351}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding:18px 0 21px;border-top:1px solid #ffffff29;font-size:10px;letter-spacing:.05em;color:#bccbc2}
+.footer-bottom a{color:#f3b55c;font-weight:700}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.78,.25,1)}
+.reveal.is-visible{opacity:1;transform:none}
+@media (max-width:1100px){.desktop-nav{gap:16px}.brand-name{font-size:16px}.brand-logo{width:51px;height:51px}.header-reserve{padding:10px 14px}.feature-card{min-height:490px}.feature-content{padding:42px}}
+@media (max-width:900px){.desktop-nav,.header-reserve{display:none}.menu-toggle{display:block}.header-inner{height:76px}.mobile-nav:not([hidden]){display:flex;flex-direction:column;gap:0;padding:10px 6vw 24px;background:var(--cream);color:var(--ink);box-shadow:0 12px 18px #071f1d22}.mobile-nav a{padding:12px 0;border-bottom:1px solid var(--line);font-weight:600;font-size:14px}.site-header.menu-open .menu-toggle span:first-child{transform:translateY(3.5px) rotate(45deg)}.site-header.menu-open .menu-toggle span:last-child{transform:translateY(-3.5px) rotate(-45deg)}.about-grid{gap:45px}.store-details{padding:32px}.store-details dl div{grid-template-columns:80px 1fr}}
+@media (max-width:760px){html{scroll-padding-top:70px}.container,.container-wide{width:min(100% - 38px,620px)}.section-pad{padding-block:84px}.site-header{background:rgba(247,243,233,.98);color:var(--ink)}.header-inner{height:70px}.brand-logo{width:46px;height:46px}.brand-name{font-size:15px}.brand-name small{font-size:6px}.hero{min-height:680px;height:100svh;max-height:850px}.hero-image{animation:none;background-position:55% center}.hero-scrim{background:linear-gradient(180deg,#051f1bd4,#06232091 35%,#051f1bdc)}.hero-content{padding-top:95px;padding-bottom:85px}.hero-eyebrow{font-size:10px;letter-spacing:.2em;margin-bottom:20px}.hero h1{font-size:clamp(31px,7.6vw,51px);letter-spacing:-.035em;line-height:1.3}.hero-title-white{margin-top:.16em}.hero-copy{font-size:13px;margin:28px auto 29px;line-height:2}.desktop-break{display:none}.hero-bottom{bottom:18px;font-size:8px}.hero-bottom a{gap:5px}.hero-buttons{gap:10px}.hero-buttons .button{min-height:51px;padding:10px 16px;gap:15px;font-size:12px}.about-grid,.message-grid,.store-grid{grid-template-columns:1fr}.about-visual{grid-row:1;margin:10px 17px 40px 10px}.about-visual>img{height:390px}.about-visual::before{left:17px;right:-17px;top:-17px;bottom:17px}.about-stamp{width:95px;height:95px;left:-15px;bottom:-18px;font-size:8px}.stamp-flower{font-size:19px}.about-copy{text-align:center}.about .eyebrow{justify-content:center}.about .section-title{font-size:clamp(2rem,7vw,3rem)}.about .body-copy{margin-inline:auto}.about-lead{margin-top:24px}.feature-heading{display:block;text-align:center}.feature-heading .eyebrow{justify-content:center;margin-bottom:24px}.feature-heading>p:last-child{margin:20px 0 0}.feature-card{grid-template-columns:1fr}.feature-photo{min-height:0;aspect-ratio:4/3}.feature-content{padding:38px 31px 45px}.feature-content h3{font-size:2rem;margin:23px 0 16px}.feature-exact{font-size:14px}.feature-symbol{font-size:73px;right:28px;top:17px}.secondary-feature{justify-content:center}.secondary-feature img{width:78px;height:78px}.secondary-feature p{font-size:13px}.message-grid{gap:55px}.message-photo{width:min(78%,370px);margin-inline:auto}.message-photo img{aspect-ratio:1/1.1}.message-copy{text-align:center}.message-copy .eyebrow{justify-content:center}.message-copy .section-title{font-size:clamp(1.8rem,6.5vw,2.6rem)}.signature{text-align:center}.store-heading{display:block;text-align:center}.store-heading .eyebrow{justify-content:center}.store-heading>p{text-align:center;margin-top:18px}.store-image{height:390px;min-height:0}.store-image img{object-position:center 44%}.store-details{padding:38px 26px 45px}.store-details h3{font-size:1.8rem}.gallery-stage{width:calc(100% - 38px);aspect-ratio:4/3}.gallery-slide span{bottom:34px;left:22px;font-size:13px;max-width:65%}.gallery-arrow{width:38px;height:38px;font-size:17px}.gallery-prev{left:10px}.gallery-next{right:10px}.reservation-groups{grid-template-columns:1fr;gap:35px}.reservation-content>p:not(.eyebrow){margin-bottom:36px}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.footer-brand{grid-column:1/-1}.site-footer{padding-top:60px}.footer-grid{padding-bottom:45px}}
+@media (max-width:420px){.container,.container-wide{width:calc(100% - 34px)}.brand-name{font-size:13px}.brand-name small{font-size:5.5px}.brand-logo{width:42px;height:42px}.header-actions{gap:5px}.language-switch{height:33px}.hero h1{font-size:clamp(29px,7.65vw,34px);letter-spacing:-.055em}.hero-copy{max-width:320px}.hero-buttons{flex-wrap:nowrap}.hero-buttons .button{font-size:10px;padding:9px 12px;gap:8px;min-height:47px}.hero-bottom span:first-child{max-width:160px}.about-visual>img{height:300px}.feature-photo{aspect-ratio:1/1}.feature-content{padding:32px 24px}.feature-content h3{font-size:1.75rem}.store-details dl div{grid-template-columns:72px 1fr;gap:8px;font-size:12px}.store-details h3{font-size:1.5rem}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{flex-direction:column;gap:4px}}
+@media (hover:none),(pointer:coarse){.button:hover{transform:none}.feature-card:hover .feature-photo img{transform:none}.gallery-arrow:hover{background:#092f2e99;color:white}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.hero-image{animation:none}}
+
+/* Four-page layout */
+.company-brand{display:flex;flex-direction:column;flex:none;color:inherit;line-height:1.15;white-space:nowrap}
+.company-brand span{font:700 23px/1.2 var(--serif);letter-spacing:.04em}
+.company-brand small{font:700 9px/1.2 var(--sans);letter-spacing:.24em;margin-top:4px}
+.desktop-nav a[aria-current="page"]{color:var(--orange)}
+.desktop-nav a[aria-current="page"]::after{right:0}
+.footer-brand>a:first-child{font:700 clamp(1.45rem,2vw,2rem)/1.35 var(--serif)}
+.inner-main{animation:pageEnter .6s cubic-bezier(.2,.78,.25,1) both}
+@keyframes pageEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.subhero{height:clamp(320px,37vw,480px);display:flex;align-items:center;position:relative;color:white;background-position:center;background-size:cover}
+.subhero-about{background-image:url("assets/satkar-interior-1.png")}
+.subhero-stores{background-image:url("assets/satkar-exterior.png");background-position:center 40%}
+.subhero-reservation{background-image:url("assets/satkar-food-hero.png");background-position:center 55%}
+.subhero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,#062620d9,#062620a0 58%,#06262069),linear-gradient(0deg,#06262098,transparent 50%)}
+.subhero-content{position:relative;z-index:1;text-align:center}
+.subhero .eyebrow{justify-content:center;color:#ffc26d;margin-bottom:15px}
+.subhero h1{font:600 clamp(2.7rem,5vw,4.7rem)/1.35 var(--serif);letter-spacing:.1em;margin:0}
+.subhero-content>p:last-child{font-size:15px;margin:14px 0 0;color:#fffdf3}
+.home-store{background:var(--paper)}
+.home-section-heading{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:50px}
+.home-section-heading .eyebrow{margin-bottom:20px}
+.home-section-heading>p{max-width:340px;margin:0 0 8px;line-height:2;font-size:14px}
+.home-store-grid{display:grid;grid-template-columns:1fr 1fr;min-height:530px;background:var(--cream)}
+.home-store-image{height:530px;overflow:hidden}
+.home-store-image img{width:100%;height:100%;object-fit:cover;object-position:center 48%}
+.home-store-details{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(36px,5vw,75px)}
+.home-store-details h3{font:600 clamp(1.6rem,2.4vw,2.5rem)/1.65 var(--serif);color:var(--ink);margin:0 0 20px}
+.home-store-details p{font-size:13px;margin:0 0 14px;line-height:1.85}
+.home-store-details p a{text-decoration:underline;text-underline-offset:3px}
+.home-store-details .button{margin-top:20px}
+.home-feature{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;margin-top:38px;background:var(--ink-deep);color:white}
+.home-feature>img{width:100%;height:360px;object-fit:cover}
+.home-feature>div{padding:clamp(30px,4vw,55px);display:flex;flex-direction:column;justify-content:center}
+.home-feature .eyebrow{color:#f3b65a;margin-bottom:16px}
+.home-feature h3{font:600 clamp(1.5rem,2vw,2.2rem)/1.5 var(--serif);margin:0 0 18px;color:white}
+.home-feature-text{font-weight:600;font-size:14px;line-height:2.1;margin:0 0 18px;line-break:strict;overflow-wrap:anywhere}
+.home-feature small{color:#c2d0c8;font-size:11px}
+.sns-band{position:relative;padding:clamp(75px,8vw,115px) 0;background:url("assets/satkar-interior-1.png") center/cover;color:white}
+.sns-backdrop{position:absolute;inset:0;background:#092823d8}
+.sns-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:50px}
+.sns-label{font:700 11px/1 var(--sans);letter-spacing:.23em;color:#ffc16b;margin:0 0 18px}
+.sns-inner h2{font:600 clamp(2rem,3.5vw,3.4rem)/1.45 var(--serif);margin:0 0 15px;color:white}
+.sns-inner p:last-child{font-size:14px;color:#e9eee8;margin:0}
+.sns-line{display:flex;align-items:center;gap:25px;min-width:280px;min-height:78px;padding:12px 26px;border-radius:9px;background:#06c755;color:#fff;font-weight:700;justify-content:center;transition:transform .2s}
+.sns-line:hover{transform:translateY(-3px)}
+.line-dot{display:grid;place-items:center;width:45px;height:45px;border:2px solid white;border-radius:50%;font-size:10px}
+.home-reservation{padding:clamp(85px,9vw,135px) 0;text-align:center;background:var(--cream)}
+.home-res-inner .eyebrow{justify-content:center;margin-bottom:21px}
+.home-res-inner .section-title{font-size:clamp(2rem,3.8vw,3.6rem)}
+.home-res-inner>p:not(.eyebrow){margin:22px 0 31px}
+.representative{background:var(--cream)}
+.representative-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(35px,6vw,100px);align-items:start}
+.representative-profile img{width:100%;aspect-ratio:1/1.15;object-fit:cover;object-position:center 28%}
+.representative-profile p{font-size:12px;color:var(--orange);font-weight:700;margin:22px 0 4px;letter-spacing:.04em}
+.representative-profile h2{font:600 clamp(1.4rem,2.2vw,2.1rem)/1.4 var(--serif);margin:0;color:var(--ink)}
+.representative-note{position:relative;background:white;padding:clamp(31px,4.6vw,70px);box-shadow:0 15px 50px #142a1712;border-left:3px solid var(--orange);font-size:15px;line-height:2.35}
+.representative-note p{margin:0 0 25px}
+.representative-note p:last-child{margin-bottom:0}
+.representative-note .note-opening{font-weight:700;color:var(--ink);font-size:17px}
+.values-section{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(90deg,transparent,rgba(214,168,68,.82) 15%,rgba(220,116,24,.48) 50%,rgba(214,168,68,.82) 85%,transparent) center top / calc(100% - clamp(40px,9vw,150px)) 1px no-repeat,linear-gradient(90deg,transparent,rgba(214,168,68,.82) 15%,rgba(220,116,24,.48) 50%,rgba(214,168,68,.82) 85%,transparent) center bottom / calc(100% - clamp(40px,9vw,150px)) 1px no-repeat,linear-gradient(135deg,#fbf8f0 0%,var(--cream) 55%,#f6efdf 100%)}
+.values-section .section-title{color:var(--ink)}
+.values-section::before,.values-section::after{position:absolute;z-index:0;content:"";pointer-events:none}
+.values-section::before{top:42%;left:-15%;width:130%;height:220px;border:1px solid #dc74182b;border-radius:50%;transform:rotate(-5deg);box-shadow:0 0 0 23px #edba390d,0 0 0 24px #dc74181a,0 0 0 58px #edba390a}
+.values-section::after{top:-95px;right:-105px;width:340px;height:340px;border:1px solid #dc74182b;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 24px,#dc74180d 25px 26px,transparent 27px 48px)}
+.values-section>.container{position:relative;z-index:1}
+
+/* Mobile layout refinements requested from the page preview. */
+@media(max-width:760px){
+  body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open){background:transparent;box-shadow:none;color:white}
+  body[data-page="home"] .hero-image{animation:heroZoom 16s ease-out both}
+  #about .about-grid{grid-template-columns:1fr;gap:0}
+  #about .about-visual{grid-row:1;width:calc(100% - 18px);margin:0 auto 34px}
+  #about .about-visual>img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+  #about .about-copy{grid-row:2;display:flex;flex-direction:column;align-items:center;text-align:center}
+  #about .about-copy .section-title{width:100%;margin:0 0 18px}
+  #about .about-copy .body-copy{width:100%;margin:0 0 22px}
+  #about .about-copy .text-link{margin-top:0}
+  .delivery-card{flex-direction:row;justify-content:flex-start;gap:14px;min-height:68px;padding:8px 14px;text-align:left}
+  .delivery-logo{flex:0 0 58px;width:58px;height:46px;margin:0}
+  .delivery-action{flex:1;justify-content:flex-start;gap:7px}
+}
+.values-section .section-title{margin-bottom:45px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{border:1px solid #dddccf;background:var(--paper);padding:44px 28px 40px;text-align:center;min-height:275px}
+.value-card svg{width:54px;height:54px;stroke:var(--orange);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 23px}
+.value-card h3{font:600 19px/1.55 var(--serif);color:var(--ink);margin:0 0 13px}
+.value-card p{font-size:13px;line-height:2;margin:0}
+.company-section{background:var(--cream)}
+.company-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:70px}
+.company-table{margin:0;border-top:1px solid var(--line)}
+.company-table div{display:grid;grid-template-columns:130px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:2}
+.company-table dt{font-weight:700;color:var(--ink)}
+.company-table dd{margin:0}
+.store-identity{text-align:center;margin-bottom:31px}
+.store-identity .shop-logo{width:112px;height:112px;object-fit:contain;margin:0 auto 12px;background:white;border-radius:50%}
+.store-identity h3{font-size:clamp(1.4rem,2vw,2rem);margin:0}
+.stores-gallery{padding-top:0}
+.stores-gallery .gallery-heading{padding-top:25px}
+.location-section{background:#ece7d9}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.location-grid>div:last-child{border-left:2px solid var(--orange);padding-left:35px}
+.location-grid p{font:600 clamp(1.1rem,1.8vw,1.55rem)/1.9 var(--serif);color:var(--ink);margin:0 0 16px}
+.location-grid a{font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.booking-section{position:relative;background:linear-gradient(90deg,#082d29ef,#082d29d9),url("assets/satkar-food-hero.png") center/cover;color:white}
+.booking-section .section-title,.delivery-section .section-title{color:white}
+.booking-section .eyebrow,.delivery-section .eyebrow{color:#ffc16b}
+.booking-intro,.delivery-intro{margin:16px 0 38px;color:#e0e8df;font-size:14px}
+.booking-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.booking-card{display:flex;flex-direction:column;align-items:flex-start;min-height:260px;background:#fffdf6;color:var(--ink);padding:31px 28px 27px;border-top:5px solid var(--orange);border-radius:8px;transition:transform .2s,box-shadow .2s}
+.booking-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px #0004}
+.booking-card.tabelog{border-color:#db562e}.booking-card.gurunavi{border-color:#bd2e31}.booking-card.telephone{border-color:var(--orange)}
+.booking-icon{display:grid;place-items:center;min-width:79px;height:44px;border:1px solid #d8d8d1;padding:0 11px;font-weight:700;font-size:13px;border-radius:4px}
+.booking-card h3{font:600 19px/1.5 var(--serif);margin:24px 0 7px}
+.booking-card p{font-size:12px;margin:0 0 20px;color:#65736d}
+.booking-action{margin-top:auto;font-size:13px;font-weight:700;color:var(--ink)}
+.delivery-section{background:#0d3833;color:white}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.delivery-card{min-height:120px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px;border-radius:7px;border:1px solid #ffffff70;transition:transform .2s}
+.delivery-card:hover{transform:translateY(-4px)}
+.delivery-card strong{font-size:21px;line-height:1.2}
+.delivery-card span{font-size:11px;font-weight:700;white-space:nowrap}
+.delivery-card.uber{background:#0f7541}.delivery-card.demae{background:#c94420}.delivery-card.rocket{background:#263f39}
+@media(max-width:900px){.company-brand span{font-size:20px}.representative-grid{grid-template-columns:.8fr 1.2fr;gap:35px}.booking-grid,.delivery-grid{gap:10px}.booking-card{padding:23px 17px}.delivery-card{padding:20px 15px}.delivery-card strong{font-size:17px}}
+@media(max-width:760px){.subhero{height:330px}.home-section-heading{display:block;text-align:center}.home-section-heading .eyebrow{justify-content:center}.home-section-heading>p{margin:20px auto 0}.home-store-grid,.home-feature,.representative-grid,.company-grid,.location-grid{grid-template-columns:1fr}.home-store-image{height:330px}.home-store-details{padding:36px 27px 42px}.home-feature>img{height:275px}.home-feature>div{padding:33px 27px}.sns-inner{display:block;text-align:center}.sns-line{width:min(100%,360px);margin:30px auto 0}.representative-profile{max-width:350px;margin:auto;text-align:center}.representative-profile img{aspect-ratio:1/1}.representative-note{padding:33px 26px}.values-grid{grid-template-columns:1fr;gap:12px}.value-card{min-height:0;padding:33px 25px}.company-grid{gap:32px}.company-table div{grid-template-columns:95px 1fr;gap:13px;font-size:12px}.store-identity .shop-logo{width:95px;height:95px}.location-grid{gap:25px}.location-grid>div:last-child{padding-left:24px}.booking-grid,.delivery-grid{grid-template-columns:1fr}.booking-card{min-height:210px}.delivery-card{min-height:96px}.delivery-card strong{font-size:20px}.subhero h1{font-size:clamp(2.4rem,8vw,3.6rem)}.inner-main{animation-duration:.5s}}
+@media(max-width:420px){.company-brand span{font-size:17px}.company-brand small{font-size:7px}.home-feature>img{height:240px}.company-table div{grid-template-columns:75px 1fr}.representative-note{font-size:13px}.booking-card h3{font-size:18px}}
+@media(hover:none),(pointer:coarse){.sns-line:hover,.booking-card:hover,.delivery-card:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.inner-main{animation:none}}
+
+/* User-directed refinements */
+.home-section-heading{margin-bottom:38px}
+.sns-inner{gap:28px}
+.sns-inner>div{flex:1;min-width:0}
+.sns-inner h2{font-size:clamp(2rem,3vw,3rem);letter-spacing:.02em;white-space:nowrap}
+.sns-line{flex:0 0 270px;min-width:0}
+.home-reservation{position:relative;isolation:isolate;padding:73px 0 78px;background:url("assets/satkar-food-hero.png") center 52%/cover no-repeat;color:white}
+.home-reservation::before{content:"";position:absolute;z-index:-1;inset:0;background:rgba(15,27,23,.72)}
+.home-res-inner .section-title{color:white;font-size:clamp(2.25rem,4vw,3.5rem);line-height:1.35}
+.home-res-inner>p:not(.eyebrow){color:#fff;margin:13px 0 28px;font-size:14px}
+.button-reservation{background:white;color:var(--ink-deep);min-height:53px;gap:22px}
+.button-reservation:hover{background:#f6ead4}
+.representative{padding-block:clamp(85px,8vw,115px)}
+.representative-grid{grid-template-columns:minmax(300px,.85fr) minmax(0,1.15fr);gap:clamp(35px,5vw,80px)}
+.representative-profile img{height:clamp(360px,28vw,440px);aspect-ratio:auto;object-fit:cover;object-position:center 24%}
+.representative-note{padding:clamp(30px,3.5vw,52px)}
+.representative-note p{margin-bottom:18px}
+.values-section .section-title{text-align:center;margin-bottom:45px}
+.location-intro{text-align:center;max-width:850px;margin:0 auto 38px}
+.location-intro .eyebrow{justify-content:center;margin-bottom:20px}
+.location-intro .section-title{margin-bottom:17px}
+.location-intro p:not(.eyebrow){font:600 clamp(1rem,1.5vw,1.3rem)/1.9 var(--serif);color:var(--ink);margin:0 0 10px}
+.location-intro>a{display:inline-block;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+.map-frame{width:min(100%,1040px);height:520px;margin:0 auto;background:#ddd8c9;box-shadow:0 12px 32px #0b2b291a;overflow:hidden}
+.map-frame iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:980px){.sns-inner{display:block;text-align:center}.sns-inner h2{white-space:normal}.sns-line{width:min(100%,360px);margin:30px auto 0}}
+@media(max-width:760px){.representative-grid{grid-template-columns:1fr;gap:35px}.representative-profile img{height:auto;aspect-ratio:1/1}.home-reservation{padding:78px 0 82px}.home-res-inner .section-title{font-size:clamp(2rem,8vw,3rem)}.map-frame{height:360px}.sns-inner h2{font-size:clamp(2rem,7.7vw,2.8rem)}}
+@media(max-width:420px){.map-frame{height:310px}.location-intro p:not(.eyebrow){font-size:14px}}
+
+/* Compact navigation and booking updates */
+.section-pad{padding-block:clamp(52px,6vw,86px)}
+.site-header .header-actions{gap:12px}
+.language-switch{position:relative;display:flex;align-items:center;gap:0;height:36px;min-width:72px;padding:3px;border:1px solid currentColor;border-radius:999px;background:transparent;isolation:isolate}
+.language-switch::before{content:"";position:absolute;z-index:-1;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:999px;background:var(--orange);transition:transform .22s ease}
+.language-switch.is-en::before{transform:translateX(100%)}
+.language-option{width:50%;text-align:center;font:700 10px/1 var(--sans);letter-spacing:.04em;transition:color .2s}
+.language-option.is-active{color:#151915}
+.language-switch.is-en .language-ja{color:inherit}
+.language-switch.is-en .language-en{color:#151915}
+.language-switch:not(.is-en) .language-en{color:inherit}
+.language-switch span{margin-left:0}
+.header-actions .header-reserve{display:none}
+.hero{min-height:620px;height:88svh;max-height:900px;background:#000}
+.hero-scrim{background:linear-gradient(180deg,#0009,#0006 38%,#000b),linear-gradient(90deg,#0007,transparent 66%)}
+.hero-eyebrow{display:none}
+.home-section-heading{margin-bottom:24px}
+.home-store-grid-solo{grid-template-columns:1fr;min-height:0;max-width:900px;margin-inline:auto}
+.home-store-grid-solo .home-store-details{align-items:center;text-align:center;padding:clamp(28px,4vw,54px)}
+.home-store-grid-solo .home-store-details h3{margin-bottom:14px}
+.home-store-grid-solo .home-store-details p{margin-bottom:8px}
+.home-feature{display:none}
+.sns-band{padding-block:48px}
+.sns-inner h2{font-size:clamp(1.75rem,3vw,2.65rem)}
+.sns-line img{width:78px;height:44px;object-fit:cover;border-radius:4px}
+.home-reservation{padding-block:55px}
+.representative.section-pad{padding-block:58px}
+.values-section .section-title{margin-bottom:28px}
+.value-card{min-height:0;padding:32px 24px}
+.company-grid{grid-template-columns:1fr;gap:24px}
+.company-grid>.section-title{text-align:center}
+.company-table{width:min(100%,900px);margin-inline:auto}
+.company-table div{padding-block:15px}
+.store.section-pad{padding-block:50px}
+.store-heading{display:block;text-align:center;margin-bottom:27px}
+.store-heading>.section-title{max-width:900px;margin:0 auto;text-align:center}
+.stores-gallery{padding-bottom:55px}
+.stores-gallery .gallery-heading{padding-block:0 22px}
+.gallery-stage{aspect-ratio:16/8.5}
+.location-section.section-pad{padding-block:48px}
+.location-intro{margin-bottom:25px}
+.location-intro .section-title{margin-bottom:8px}
+.map-frame{height:390px}
+.subhero{height:clamp(250px,28vw,350px)}
+.subhero-about{height:clamp(215px,23vw,295px)}
+.subhero-reservation{height:205px}
+.subhero h1{letter-spacing:.045em}
+.booking-section{background:linear-gradient(90deg,#000e,#000b),url("assets/satkar-food-hero.png") center/cover;color:white}
+.booking-section .container{text-align:center}
+.booking-section>.container>.section-title{color:white;font-size:clamp(1.8rem,3.2vw,2.7rem)}
+.booking-intro{margin:8px 0 24px}
+.booking-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.booking-card{align-items:center;text-align:center;min-height:225px;padding:18px 15px 16px;border-top:0;border-bottom:4px solid var(--orange);border-radius:12px;background:#fff;color:#171c1a;box-shadow:0 8px 24px #0003}
+.booking-card.tabelog{border-color:#efa500}.booking-card.gurunavi{border-color:#bd1515}.booking-card.hotpepper{border-color:#df0b30}.booking-card.telephone{border-color:#ed5629}
+.booking-logo{display:grid;place-items:center;width:64px;height:58px;margin-bottom:7px;overflow:hidden;border-radius:10px;background:#fff}
+.booking-logo img{width:100%;height:100%;object-fit:contain}
+.booking-logo.phone-symbol{color:#e8592e;background:#fff0e8;font-size:26px}
+.booking-card h3{font-size:15px;margin:5px 0 1px;line-height:1.5}
+.booking-card p{font-size:12px;margin:0 0 12px}
+.booking-action{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:42px;margin-top:auto;padding:7px 10px;border-radius:8px;background:#cf0928;color:white;font-size:12px}
+.booking-card.tabelog .booking-action{background:#efa500;color:#181818}.booking-card.gurunavi .booking-action{background:#bc1010}.booking-card.telephone .booking-action{background:#ed5629}
+.booking-card:hover{transform:translateY(-3px)}
+.delivery-section.section-pad{padding-block:48px}
+.delivery-section .container{text-align:center}
+.delivery-section>.container>.eyebrow{justify-content:center;margin-bottom:8px}
+.delivery-section>.container>.section-title{font-size:clamp(1.75rem,3vw,2.5rem)}
+.delivery-intro{margin:7px 0 20px}
+.delivery-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.delivery-card{min-height:105px;padding:12px 18px;border:0;border-radius:10px;background:white;color:#202622;box-shadow:0 8px 20px #0002}
+.delivery-card.uber,.delivery-card.demae,.delivery-card.rocket{background:white}
+.delivery-logo{display:grid;place-items:center;width:min(45%,135px);height:76px;overflow:hidden;border-radius:6px}
+.delivery-logo img{width:100%;height:100%;object-fit:contain}
+.delivery-action{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;white-space:nowrap}
+.gallery-slide span{font-size:15px}
+@media(max-width:900px){.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.booking-card{min-height:205px}.company-grid{grid-template-columns:1fr}.company-grid>.section-title{text-align:center}}
+@media(max-width:760px){.section-pad{padding-block:46px}.hero{min-height:570px;height:86svh;max-height:760px}.hero-scrim{background:linear-gradient(180deg,#0009,#0007 40%,#000c)}.home-store-grid-solo .home-store-details{padding:28px 18px}.sns-band{padding-block:42px}.sns-inner h2{font-size:clamp(1.8rem,7vw,2.5rem)}.sns-line{margin:21px auto 0}.company-grid{gap:18px}.company-table div{padding-block:12px}.store.section-pad{padding-block:42px}.store-heading{margin-bottom:22px}.store-grid{grid-template-columns:1fr}.map-frame{height:340px}.subhero,.subhero-about,.subhero-reservation{height:230px}.booking-section.section-pad,.delivery-section.section-pad{padding-block:38px}.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.booking-card{min-height:195px;padding:14px 10px}.booking-card h3{font-size:14px}.delivery-grid{grid-template-columns:1fr;gap:9px}.delivery-card{min-height:82px}.delivery-logo{height:60px;width:115px}.delivery-action{font-size:12px}.stores-gallery{padding-bottom:42px}}
+@media(max-width:440px){.booking-grid{grid-template-columns:1fr 1fr}.booking-card{min-height:185px}.booking-logo{width:54px;height:50px}.booking-card p{font-size:11px}.delivery-card{padding-inline:13px}.delivery-logo{width:100px}.map-frame{height:300px}.company-table div{grid-template-columns:85px 1fr;font-size:12px}}
+
+/* Reservation, delivery, and store section refinements */
+.home-section-heading{display:block;margin-bottom:24px;text-align:center}
+.home-section-heading>.section-title{font-size:clamp(1.75rem,3vw,2.85rem)}
+.store-heading>.section-title{font-size:clamp(1.8rem,3vw,2.85rem)}
+.reservation-background{background:linear-gradient(180deg,rgba(3,23,21,.82),rgba(3,23,21,.88)),url("assets/satkar-food-hero.png") center/cover no-repeat;color:white}
+.booking-section,.delivery-section{background:transparent;color:white}
+.booking-section .section-title,.delivery-section .section-title{color:white}
+.booking-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:930px;margin-inline:auto}
+.booking-card.hotpepper{display:none}
+.delivery-logo{flex:0 0 76px;width:76px;height:70px}
+.delivery-logo img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+.delivery-card.rocket .delivery-logo img{transform:scale(1.16)}
+@media(max-width:760px){.home-section-heading>.section-title,.store-heading>.section-title{font-size:clamp(1.65rem,6vw,2.2rem)}.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.delivery-logo{flex-basis:68px;width:68px;height:64px}}
+@media(max-width:440px){.booking-grid{grid-template-columns:1fr 1fr}.delivery-logo{flex-basis:58px;width:58px;height:58px}}
+
+/* Follow-up layout refinements */
+.subhero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.72))}
+.header-inner{position:relative}
+.desktop-nav{position:absolute;left:50%;transform:translateX(-50%);justify-content:center;margin-left:0}
+.desktop-nav a::after,.desktop-nav a:hover::after,.desktop-nav a[aria-current="page"]::after{display:none;content:none}
+.hero{height:100svh;min-height:100svh;max-height:none}
+.representative{padding-block:clamp(48px,5vw,72px)}
+.representative-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,4vw,58px);align-items:center}
+.representative-profile img{height:auto;aspect-ratio:1/1;object-position:center 24%}
+.representative-profile p{margin-top:14px}
+.representative-note{padding:clamp(24px,3vw,38px);font-size:14px;line-height:2.05}
+.representative-note p{margin-bottom:13px}
+.representative-note .note-opening{font-size:16px}
+.store.section-pad{padding-block:34px}
+.store-heading{margin-bottom:20px}
+.store-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.store-image{height:420px;min-height:0}
+.store-image img{object-position:center 43%}
+.store-details{padding:clamp(24px,3vw,40px)}
+.store-kicker{margin-bottom:10px}
+.store-details h3{font-size:clamp(1.45rem,2vw,2rem);line-height:1.45;margin-bottom:18px}
+.store-details dl{margin-bottom:20px}
+.store-details dl div{padding:9px 0;font-size:12px;line-height:1.6}
+@media(max-width:900px){.desktop-nav{left:50%;gap:16px}.representative-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px}}
+@media(max-width:760px){.hero{height:100svh;min-height:100svh;max-height:none}.representative{padding-block:42px}.representative-grid{grid-template-columns:1fr;gap:28px}.representative-profile{width:min(100%,320px);margin-inline:auto}.representative-profile img{width:100%;height:auto;aspect-ratio:1/1;object-position:center 24%}.representative-profile p{margin-top:12px}.representative-note{padding:24px 22px;font-size:13px;line-height:2}.representative-note p{margin-bottom:12px}.representative-note .note-opening{font-size:15px}.store.section-pad{padding-block:28px}.store-heading{margin-bottom:16px}.store-grid{grid-template-columns:1fr}.store-image{height:300px}.store-details{padding:24px 22px 28px}.store-details h3{font-size:1.5rem;margin-bottom:14px}.store-details dl{margin-bottom:16px}.store-details dl div{padding:8px 0}}
+@media(max-width:420px){.representative-profile{width:min(100%,280px)}.store-image{height:250px}}
+
+/* Centered mobile composition and BudouX phrase wrapping */
+@media(max-width:760px){
+  body,main,main section,.container,.container-wide,.subhero-content,.hero-content,.home-store-details,.feature-content,.representative-profile,.representative-note,.store-details,.store-heading,.location-intro,.company-grid,.company-table,.gallery-heading,.footer-grid,.footer-grid>div,.footer-bottom{text-align:center}
+  .header-inner{justify-content:center}
+  .company-brand{position:absolute;left:50%;transform:translateX(-50%);align-items:center;text-align:center}
+  .header-actions{position:absolute;right:0}
+  .mobile-nav a{width:100%;text-align:center}
+  .eyebrow,.store-kicker,.feature-heading .eyebrow,.location-intro .eyebrow{justify-content:center}
+  .hero-copy,.home-section-heading>p,.message-copy .body-copy,.representative-note p,.feature-content p,.store-details p,.location-intro p,.footer-grid p{margin-inline:auto}
+  .home-store-grid-solo .home-store-details,.store-identity{align-items:center}
+  .store-identity{flex-direction:column;justify-content:center}
+  .store-details dl div,.company-table div{grid-template-columns:1fr;justify-items:center;gap:3px;text-align:center}
+  .store-details dt,.store-details dd,.company-table dt,.company-table dd{width:100%;text-align:center}
+  .feature-content{text-align:center}
+  .feature-rule{margin-inline:auto}
+  .delivery-card{flex-direction:column;justify-content:center;gap:10px;text-align:center}
+  .delivery-logo{margin-inline:auto}
+  .delivery-action{justify-content:center}
+  .gallery-slide span{left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 44px);text-align:center}
+  .footer-nav a{width:auto;margin-inline:auto}
+  .footer-bottom{justify-content:center;align-items:center}
+}
+@media(max-width:380px){.company-brand span{font-size:14px}.company-brand small{font-size:5.5px;letter-spacing:.14em}.language-switch{min-width:58px;padding:2px}.menu-toggle{width:34px}.header-actions{gap:4px}}
+
+/* Store showcase and brand-colored delivery actions */
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.68),rgba(0,0,0,.78)),url("assets/satkar-food-hero.png")}
+.delivery-action{justify-content:center;min-height:42px;padding:8px 12px;border-radius:7px;color:#fff}
+.delivery-card.uber .delivery-action{background:#06c167;color:#062b1a}
+.delivery-card.demae .delivery-action{background:#f12b14}
+.delivery-card.rocket .delivery-action{background:#ff4d3d}
+.home-store-card{max-width:1100px;margin-inline:auto;background:var(--cream);color:var(--ink)}
+.home-store-card-header{display:flex;align-items:center;gap:22px;padding:22px 30px;border-bottom:1px solid #d9d8d0;background:#fff}
+.home-store-card-header>img{width:76px;height:76px;object-fit:contain;flex:0 0 auto}
+.home-store-card-header .store-kicker{margin:0 0 7px;color:var(--orange);font-size:10px;letter-spacing:.2em;font-weight:700}
+.home-store-card-header h3{margin:0;font:600 clamp(1.25rem,2.2vw,1.8rem)/1.4 var(--serif);color:var(--ink)}
+.home-store-card-body{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:stretch}
+.home-store-photo{min-height:390px;overflow:hidden}
+.home-store-photo img{display:block;width:100%;height:100%;min-height:390px;object-fit:cover;object-position:center 48%}
+.home-store-card-content{display:flex;flex-direction:column;padding:28px clamp(24px,4vw,48px) 20px}
+.home-store-feature{position:relative;padding:4px 0 16px 17px;margin-bottom:11px;border-bottom:1px solid #deddd6}
+.home-store-feature::before{position:absolute;top:5px;bottom:17px;left:0;width:3px;background:var(--orange);content:""}
+.home-store-feature h4{margin:0 0 5px;color:var(--ink);font-size:15px;line-height:1.5}
+.home-store-feature p{margin:0;color:#58615d;font-size:12px;line-height:1.8}
+.home-store-feature p+p{margin-top:3px}
+.home-store-feature a{text-decoration:underline;text-underline-offset:3px}
+.home-store-more{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:auto;padding:9px 0 0;color:var(--orange);font-size:13px;font-weight:700}
+@media(min-width:761px){.store-image{position:relative;height:auto;min-height:0;align-self:stretch;overflow:hidden}.store-image img{position:absolute;inset:0;width:100%;height:100%;min-height:0;object-fit:cover}}
+/* Keep the entrance and doorway in view inside the existing photo frame. */
+.store-image img{object-position:center 60%}
+@media(max-width:760px){.store-image img{object-position:center 60%}}
+/* Small paired accent strokes give the gallery and location headings a shared finish. */
+.stores-gallery .gallery-heading h2::after,.location-intro .section-title::after{content:"";display:block;width:58px;height:3px;margin:13px auto 0;background:linear-gradient(90deg,var(--orange) 0 72%,var(--gold) 72% 100%);border-radius:2px}
+@media(max-width:760px){.home-store-card-header{justify-content:center;gap:14px;padding:18px 16px;text-align:left}.home-store-card-header>img{width:60px;height:60px}.home-store-card-header h3{font-size:1.1rem}.home-store-card-body{grid-template-columns:1fr}.home-store-photo{height:280px;min-height:0}.home-store-photo img{height:100%;min-height:0}.home-store-card-content{padding:25px 22px 21px;text-align:center}.home-store-feature{padding:5px 0 15px}.home-store-feature::before{top:0;bottom:16px;left:50%;transform:translateX(-50%);width:34px;height:2px}.home-store-feature h4{padding-top:9px}.home-store-more{justify-content:center}.store-image{height:300px}}
+@media(max-width:420px){.home-store-card-header{gap:10px;padding-inline:12px}.home-store-card-header>img{width:52px;height:52px}.home-store-card-header h3{font-size:1rem}.home-store-photo{height:240px}.store-image{height:250px}}
+@media(max-width:760px){.booking-card.telephone{grid-column:1/-1;width:calc(50% - 5px);justify-self:center}}
+@media(min-width:761px){.home-section-heading>.section-title{white-space:nowrap}.home-section-heading>.section-title br{display:none}}
+
+/* Latest shop presentation and brand refinements */
+.company-brand span{font-size:clamp(18px,1.8vw,23px);line-height:1.2}
+.company-table{padding:6px clamp(20px,3vw,38px);border:0;border-radius:10px;background:#fff;box-shadow:0 12px 32px #142a1710}
+.company-table div{padding:18px 0;border-bottom:1px solid #e8e7e1}
+.company-table div:last-child{border-bottom:0}
+.sns-backdrop{background:rgba(0,0,0,.72)}
+.sns-line{gap:18px}
+.sns-line img{width:52px;height:52px;object-fit:contain;border-radius:0;flex:0 0 52px}
+.delivery-card.uber .delivery-action{background:#06c167;color:#071b10}
+.delivery-card.demae .delivery-action{background:#f12b14;color:#fff}
+.delivery-card.rocket .delivery-action{background:#fff;color:#171717;border:0}
+.about-grid{width:min(100% - 48px,1120px);grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(38px,5.5vw,76px);align-items:center}
+.about-copy .section-title{font-size:clamp(2rem,3.8vw,3.35rem);line-height:1.42;letter-spacing:.025em}
+.about-copy .body-copy{max-width:54ch;font-size:clamp(14px,1.2vw,16px);line-height:2.05}
+.about-visual{margin:0 18px 0 0}
+.about-visual>img{height:clamp(320px,36vw,470px);aspect-ratio:4/3;object-fit:cover;object-position:center}
+.representative-grid{--representative-photo-height:clamp(360px,28vw,465px);align-items:start}
+.representative-profile img{height:var(--representative-photo-height);aspect-ratio:auto;object-fit:cover}
+.representative-note{align-self:start;width:100%;max-width:700px;min-height:var(--representative-photo-height);display:flex;flex-direction:column;justify-content:center}
+.home-store-card-header h3{font-size:clamp(1.1rem,1.9vw,1.55rem);line-height:1.45}
+.home-store-photo{min-height:0;height:100%;background:#ece9e1}
+.home-store-photo img{min-height:0;height:100%;object-fit:cover;object-position:center top}
+@media(min-width:761px){.home-store-card-body{min-height:460px}.home-store-photo img{position:absolute;inset:0}.home-store-photo{position:relative}.home-store.section-pad{padding-block:clamp(44px,5vw,64px)}}
+@media(max-width:760px){
+  .about-grid{width:min(100% - 38px,620px);gap:26px}
+  .about-copy .section-title{font-size:clamp(1.8rem,7vw,2.5rem)}
+  .about-visual{margin:0 12px 0 0}
+  .about-visual>img{height:auto;aspect-ratio:4/3}
+  .representative-note{max-width:600px;min-height:0;margin-inline:auto}
+  .company-table{padding:8px 20px}
+  .home-store-photo{height:280px}
+  .home-store-photo img{position:static;height:100%;object-position:center top}
+  .home-store.section-pad{padding-block:38px}
+  .store.section-pad{padding-block:28px}
+}
+
+/* Restaurant visual identity */
+:root{
+  --cream:#fff8ed;
+  --paper:#fffdf8;
+  --ink:#26372b;
+  --ink-deep:#19271f;
+  --orange:#dc7418;
+  --gold:#edba39;
+  --text:#303b32;
+  --muted:#6d7568;
+  --line:#e5ddce;
+}
+.site-header.is-scrolled,.site-header.menu-open{background:rgba(255,248,237,.98);color:var(--ink);box-shadow:0 1px 0 rgba(21,59,55,.12)}
+.company-brand{flex-direction:row;align-items:center;gap:10px}
+.company-brand .company-mark{width:42px;height:42px;flex:none;object-fit:contain;background:transparent;border-radius:0;padding:0}
+.company-brand span{font:700 clamp(15px,1.65vw,21px)/1.15 var(--serif);letter-spacing:.015em}
+.footer-brand>a:first-child{display:inline-flex;align-items:center;gap:12px}
+.footer-brand .footer-mark{width:46px;height:46px;object-fit:contain}
+.hero{background:var(--ink-deep)}
+.hero-image{background-image:url("assets/satkar-food-hero.png");background-position:center}
+.hero-scrim{background:linear-gradient(180deg,rgba(15,22,15,.68),rgba(15,22,15,.54) 42%,rgba(15,22,15,.78))}
+.hero-title-accent{color:#f7bf51}
+.subhero-about{background-image:url("assets/satkar-interior-1.png")}
+.subhero-stores{background-image:url("assets/satkar-exterior.png");background-position:center 32%}
+.sns-band{background-image:url("assets/satkar-interior-2.png")}
+.home-reservation{background-image:url("assets/satkar-food-hero.png")}
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.67),rgba(0,0,0,.8)),url("assets/satkar-food-hero.png")}
+.location-section{background:#f3ead8}
+.store-wordmark{display:block;width:min(100%,220px);height:auto;aspect-ratio:3/1;object-fit:contain;margin:0 auto 16px;flex:none}
+.home-store-card-header>.store-wordmark{width:clamp(128px,15vw,164px);height:auto;max-height:58px;margin:0;flex:0 0 auto}
+.store-identity>.store-wordmark{width:min(100%,250px);height:auto;max-height:84px;margin:0 auto 16px}
+.store-identity p{margin:9px 0 0;color:var(--muted);font-size:13px;letter-spacing:.04em}
+.home-store-photo img{object-position:center 38%}
+.store-image{position:relative;background:#30362d;isolation:isolate}
+.store-image::before{content:"";position:absolute;z-index:-1;inset:-12px;background:url("assets/satkar-exterior.png") center/cover;filter:blur(16px) brightness(.58)}
+.store-image img{object-fit:contain;object-position:center}
+.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:630px}
+.booking-card.telephone{border-color:var(--gold)}
+.map-link{display:inline-block;margin-top:6px;color:var(--orange);font-size:13px;font-weight:700;text-decoration:none}
+
+/* Keep the horizontal wordmark legible in compact layouts. */
+@media(max-width:760px){.home-store-card-header>.store-wordmark{width:clamp(112px,34vw,142px);max-height:48px}}
+@media(max-width:420px){.home-store-card-header>.store-wordmark{width:112px;max-height:38px}}
+
+/* BudouX breaks are generated into Japanese copy at build time. */
+html:lang(ja) [data-i18n]{word-break:keep-all;overflow-wrap:anywhere}
+.map-link:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.company-brand span{font-size:17px}}
+@media(max-width:760px){
+  .header-inner{justify-content:space-between}
+  .company-brand{position:static;left:auto;transform:none;max-width:190px;white-space:normal;text-align:left}
+  .company-brand span{font-size:clamp(12px,3.2vw,16px)}
+  .company-brand .company-mark{width:32px;height:32px}
+  .hero-image{background-position:50% center}
+  .hero-scrim{background:linear-gradient(180deg,rgba(15,22,15,.76),rgba(15,22,15,.55) 40%,rgba(15,22,15,.84))}
+  .store-image img{object-fit:contain;object-position:center}
+  .booking-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:440px){.booking-grid{grid-template-columns:1fr}.booking-card,.booking-card.telephone{grid-column:auto;width:min(100%,360px);justify-self:center}}
+@media(max-width:390px){.company-brand span{font-size:11px}.company-brand .company-mark{width:27px;height:27px}.company-brand{gap:5px}}
+
+/* Latest refinements from the reservation and home page review. */
+.booking-section.section-pad{padding-bottom:24px}
+.delivery-section.section-pad{padding-top:24px}
+.delivery-card.uber{background:#06c167;color:#071b10}
+.delivery-card.demae{background:#f12b14;color:#fff}
+.delivery-card.rocket{background:#fff;color:#171717;border:1px solid #d8d8d8}
+.delivery-card .delivery-action{min-height:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit}
+.about-visual::before{border-color:#f2c49a}
+@media(max-width:760px){.booking-section.section-pad{padding-bottom:18px}.delivery-section.section-pad{padding-top:18px}}
+.representative-profile img{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;object-position:center;background:#f6eee2}
+
+/* Give the three home store qualities equal vertical room in the feature panel. */
+.home-store-card-content{justify-content:space-evenly;padding-block:20px}
+.home-store-feature{flex:1;display:flex;flex-direction:column;justify-content:center;margin-bottom:0;padding-block:16px}
+.store-details{display:flex;flex-direction:column}
+.store-details>.button{display:flex;width:max-content;align-self:center;margin-inline:auto}
+
+/* Keep the home header over its hero; inner pages start below an opaque header. */
+body:not([data-page="home"]) .site-header{background:#fff8ed;color:var(--ink);box-shadow:0 1px 0 rgba(21,59,55,.12)}
+.inner-main{padding-top:88px}
+@media(max-width:900px){.inner-main{padding-top:76px}}
+@media(max-width:760px){.inner-main{padding-top:70px}}
+
+/* Legacy brand override retained; Satkar palette follows below. */
+:root{--cream:#fff6e6;--paper:#fffaf1;--ink:#681c16;--ink-deep:#361610;--orange:#efa22c;--gold:#d89525;--text:#3c2720;--muted:#766156;--line:#e8d7c0}
+.site-header.is-scrolled,.site-header.menu-open,body:not([data-page="home"]) .site-header{background:rgba(255,246,230,.98);color:var(--ink);box-shadow:0 1px 0 #681c1620}
+.company-brand{flex-direction:column;align-items:flex-start;gap:2px;max-width:240px}
+.company-brand .company-mark{width:148px;height:49px;object-fit:contain;background:var(--paper);padding:4px 7px;border-radius:3px}
+.company-brand span{font:600 12px/1.2 var(--sans);letter-spacing:0}
+.footer-brand>a:first-child{flex-direction:column;align-items:flex-start;gap:15px;letter-spacing:0}
+.footer-brand .footer-mark{width:205px;height:68px;object-fit:contain;background:var(--paper);padding:6px 10px;border-radius:3px}
+.footer-brand>a:first-child>span{font:600 17px/1.4 var(--sans)}
+.site-footer{background:var(--ink-deep);color:#fff2df}
+.footer-email{display:block;overflow-wrap:anywhere}
+.footer-bottom{color:#ddc4ad}
+.footer-grid h2{color:#f2b650}
+.hero-scrim{background:linear-gradient(180deg,#28120bbf,#28120b9e 42%,#28120bcd)}
+.hero-title-accent{color:#ffc864}
+.hero h1{font-size:clamp(2.6rem,5.15vw,5.3rem)}
+html:lang(en) .hero h1{font-size:clamp(2.25rem,4.5vw,4.8rem);letter-spacing:-.025em;line-height:1.2}
+.button-dark:hover{background:#892a20}
+.text-link,.map-link{color:#9b3d1d}
+.about-stamp{background:#edb448;color:#481811}
+.subhero-overlay{background:linear-gradient(180deg,#3117109e,#311710c2)}
+.home-reservation::before{background:#311710c4}
+.sns-backdrop{background:#361610bd}
+.reservation-background{background-image:linear-gradient(180deg,#28120bbd,#28120bdb),url("assets/satkar-food-hero.png")}
+.booking-intro,.delivery-intro{color:#fff1e1}
+.booking-card.telephone{border-color:var(--gold)}
+.booking-card.telephone .booking-action{background:var(--ink);color:white}
+.booking-logo.phone-symbol{color:var(--ink);background:#fff0db}
+.booking-card p{color:#68544a}
+.representative-profile img{aspect-ratio:3/4;object-fit:contain;background:transparent}
+.location-section{background:#f5e8d2}
+.store-image{background:#4a251b}
+.store-identity p,.store-details dl div,.company-table div,.value-card p,.body-copy{font-size:14px}
+.body-copy,.representative-note,.home-store-feature p{font-size:16px}
+.values-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(min-width:901px){.desktop-nav{position:static;left:auto;transform:none;margin-left:auto;margin-right:auto}.desktop-nav a{font-size:13px}}
+@media(max-width:760px){
+  .company-brand{max-width:190px;align-items:flex-start;gap:3px}
+  .company-brand .company-mark{width:126px;height:42px}
+  .company-brand span{font-size:10px}
+  .header-actions{position:static}
+  .hero h1{font-size:clamp(28px,7.25vw,50px)}
+  html:lang(en) .hero h1{font-size:clamp(31px,8.1vw,52px);line-height:1.16}
+  .hero-copy{font-size:14px}
+  .values-grid{grid-template-columns:1fr}
+  .footer-brand>a:first-child{align-items:center}
+  .store-details dl div,.company-table div{font-size:14px}
+  .representative-note,.representative-note .note-opening{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){body[data-page="home"] .hero-image{animation:none}}
+
+/* Review refinements: company typography, culinary artwork, and CEO composition. */
+:root{--company-font:"Cormorant Garamond",Georgia,serif}
+.company-brand{max-width:none;gap:0;align-items:flex-start}
+.company-brand .company-wordmark,.footer-brand>a:first-child>.company-wordmark{display:flex;flex-direction:column;gap:1px;font-family:var(--company-font);letter-spacing:0}
+.company-brand .company-title{font:600 italic 34px/1 var(--company-font);letter-spacing:.01em}
+.company-brand .company-name-suffix{font:600 12px/1.4 var(--company-font);letter-spacing:.16em}
+.footer-brand>a:first-child .company-title{font:500 italic clamp(42px,4vw,57px)/1.05 var(--company-font);color:#fff0d7;letter-spacing:0}
+.footer-brand>a:first-child .company-name-suffix{font:500 16px/1.5 var(--company-font);letter-spacing:.18em;color:#efbc70}
+[data-i18n="companyName"]{font-family:var(--company-font);font-style:italic;font-weight:600;font-size:1.15em;letter-spacing:.01em}
+.company-table [data-i18n="companyName"]{font-size:23px;line-height:1.25}
+.hero-scrim{background:linear-gradient(180deg,rgba(0,0,0,.54),rgba(0,0,0,.43) 42%,rgba(0,0,0,.59))}
+.about-photo-signature{position:absolute;z-index:2;right:18px;bottom:18px;width:145px;padding:10px 13px;background:#fffaf1ed;border:1px solid #d8952540;border-radius:3px;box-shadow:0 4px 14px #36161012}
+.about-photo-signature img{width:100%;height:auto;object-fit:contain}
+.representative-grid{grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:start}
+.representative-note{aspect-ratio:9/8;min-height:0;max-width:none;padding:clamp(30px,4vw,58px);justify-content:center;background:var(--paper);border-left:3px solid var(--gold);box-shadow:0 16px 40px #681c160b}
+.representative-note .ceo-message-label{font:700 12px/1.5 var(--sans);letter-spacing:.16em;color:#9b3d1d;margin:0 0 24px}
+.representative-note .ceo-catch{font:600 clamp(30px,3.8vw,52px)/1.3 var(--serif);letter-spacing:-.02em;color:var(--ink);margin:0 0 28px}
+html:lang(en) .representative-note .ceo-catch{font-family:var(--company-font);font-size:clamp(36px,4.4vw,62px);line-height:1.12;letter-spacing:-.025em}
+.representative-note .ceo-message{font:400 16px/2 var(--sans);color:var(--text);margin:0;padding-top:23px;border-top:1px solid var(--line)}
+.representative-profile p{color:#9b3d1d}
+.values-section{background:var(--cream) url("assets/satkar-interior-2.png") center/cover no-repeat;border-block:1px solid #d8952526;padding-block:clamp(64px,7vw,100px)}
+.values-section::before,.values-section::after{content:none}
+.values-section .value-card{background:#fffaf1f2;border-color:#d8952540;box-shadow:0 8px 20px #681c1608}
+.booking-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:950px}
+.booking-card.tabelog .booking-action{background:#d58a12;color:#2e1a09}
+@media(max-width:900px) and (min-width:761px){
+ .representative-note{padding:25px}
+ .representative-note .ceo-message-label{margin-bottom:16px;font-size:11px}
+ .representative-note .ceo-catch{font-size:28px;margin-bottom:20px}
+ html:lang(en) .representative-note .ceo-catch{font-size:38px}
+ .representative-note .ceo-message{font-size:14px;line-height:1.9;padding-top:18px}
+}
+@media(max-width:760px){
+ .company-brand{max-width:55%}
+ .company-brand .company-title{font-size:29px}
+ .company-brand .company-name-suffix{font-size:11px;letter-spacing:.11em}
+ .footer-brand>a:first-child>.company-wordmark{align-items:center}
+ .about-photo-signature{width:122px;right:12px;bottom:12px;padding:8px 10px}
+ .representative-grid{grid-template-columns:1fr}
+ .representative-note{aspect-ratio:auto;width:100%;max-width:600px;padding:32px 24px}
+ .representative-note .ceo-message-label{margin-bottom:20px}
+ .representative-note .ceo-catch{font-size:clamp(26px,7.5vw,39px);margin-bottom:24px}
+ html:lang(en) .representative-note .ceo-catch{font-size:clamp(35px,10vw,48px)}
+ .representative-note .ceo-message{font-size:16px;line-height:1.95}
+ .values-section{background-size:100% auto;background-position:center top;background-repeat:repeat-y}
+ .booking-grid{grid-template-columns:1fr;max-width:420px;gap:14px}
+ .booking-card{width:100%;justify-self:stretch}
+}
+@media(max-width:350px){.company-brand .company-title{font-size:26px}.company-brand .company-name-suffix{font-size:10px}.representative-note{padding-inline:21px}}
+.company-name-inline{font:600 italic 1.16em/1.5 var(--company-font);letter-spacing:.01em}
+
+/* Second review: consistent culinary surfaces, restrained controls, and phrase-safe copy. */
+.home-store{background:var(--cream) url("assets/satkar-interior-1.png") center/100% 100% no-repeat}
+.stores-gallery{background:var(--cream) url("assets/satkar-interior-2.png") center/100% 100% no-repeat}
+.home-store.section-pad{padding-block:clamp(58px,6vw,82px)}
+.home-store-card{box-shadow:0 12px 38px #681c1614;border:1px solid #d8952538}
+.stores-gallery{padding-block:58px 64px}
+.home-reservation::before{background:rgba(0,0,0,.64)}
+.subhero-about .subhero-overlay,.subhero-stores .subhero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.43),rgba(0,0,0,.56))}
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.58),rgba(0,0,0,.70)),url("assets/satkar-food-hero.png")}
+.site-footer{border-top:2px solid #d89525}
+.hero-buttons .button-primary{color:#fff;background:#b75b12}
+.hero-buttons .button-primary:hover{color:#fff;background:#99480c}
+.language-switch{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:94px;height:40px;padding:8px 10px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;cursor:pointer;transition:background .2s,border-color .2s}
+.language-switch::before{content:none}
+.language-switch:hover{background:#efa22c1c}
+.language-globe{flex:none;width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4}
+.language-switch .language-option{width:auto;font:600 12px/1 var(--sans);letter-spacing:.035em;opacity:.5;margin:0;color:inherit}
+.language-switch .language-option.is-active,.language-switch.is-en .language-en,.language-switch:not(.is-en) .language-ja{color:inherit;opacity:1;text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+.language-switch .language-divider{font:400 11px/1 var(--sans);opacity:.4;margin:0}
+.about-visual{padding:12px;margin:0;background:var(--paper);border:1px solid #d8952570;border-radius:126px 18px 18px 18px;box-shadow:0 18px 40px #681c1614}
+.about-visual::before{content:none}
+.about-visual>img{border-radius:112px 9px 9px 9px}
+.about-photo-signature{right:24px;bottom:24px;background:#fffaf1f5;border-color:#d8952540}
+.about-copy{container-type:inline-size}
+#about-title{font-size:28px;line-height:1.5;letter-spacing:.01em;margin-bottom:22px}
+#about-title .about-heading-line{display:block;white-space:nowrap;word-break:normal;overflow-wrap:normal}
+@supports(font-size:1cqw){#about-title{font-size:min(3rem,8cqw)}html:lang(en) #about-title{font-size:min(3rem,9.6cqw)}}
+#about .body-copy{font-size:16px;line-height:2.05;word-break:normal;overflow-wrap:normal;line-break:strict;text-wrap:pretty;letter-spacing:0}
+#about .body-copy .ja-phrase{display:inline-block;white-space:nowrap;word-break:keep-all;overflow-wrap:normal}
+@media(max-width:760px){
+ .home-store,.stores-gallery{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+ .home-store.section-pad{padding-block:48px}
+ .stores-gallery{padding-block:46px 50px}
+ .language-switch{min-width:88px;height:36px;padding:7px 8px;gap:5px}
+ .language-switch .language-option{font-size:11px}
+ .about-visual{padding:9px;border-radius:85px 14px 14px 14px}
+ .about-visual>img{border-radius:76px 6px 6px 6px}
+ .about-photo-signature{right:18px;bottom:18px;width:116px}
+ #about .body-copy{max-width:100%;line-height:2.1}
+}
+
+/* Final layout refinements. */
+#about{background:#fff}
+.hero-buttons .button-primary{background:#ff8417;color:#fff;text-shadow:0 1px 1px #8b330b50}
+.hero-buttons .button-primary:hover{background:#ef7410;color:#fff}
+.home-store-card{max-width:1000px}
+.stores-gallery .gallery-stage{width:min(100% - 8vw,1000px)}
+.map-card{width:min(100%,1040px);margin-inline:auto;padding:14px;background:#fffaf1;border:1px solid #d8952580;border-radius:24px;box-shadow:0 18px 42px #681c1614,0 2px 6px #681c1608}
+.map-card .map-frame{width:100%;height:clamp(320px,33vw,450px);margin:0;border:1px solid #e8d7c0;border-radius:13px;box-shadow:none;background:#ece5d8;overflow:hidden}
+.map-card iframe{width:100%;height:100%;display:block}
+@media(max-width:760px){
+ .home-store{background-image:url("assets/satkar-interior-1.png");background-size:100% 100%;background-position:center}
+ .stores-gallery{background-image:url("assets/satkar-interior-2.png"),url("assets/satkar-interior-2.png")}
+ .stores-gallery{background-size:100% auto;background-position:center top,center bottom;background-repeat:no-repeat}
+ .stores-gallery .gallery-stage{width:calc(100% - 38px)}
+ .map-card{padding:9px;border-radius:19px}
+ .map-card .map-frame{height:310px;border-radius:11px}
+}
+
+/* White header surfaces and gold navigation feedback across all pages. */
+.site-header.is-scrolled,.site-header.menu-open,body:not([data-page="home"]) .site-header{background:#fff;color:var(--ink);box-shadow:0 1px 0 #681c1620}
+.site-header .mobile-nav{background:#fff}
+.site-header{--nav-gold:#c99a08;--nav-glow:#ffd84f}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open){--nav-gold:#ffe16a}
+.desktop-nav a,.mobile-nav a{transition:color .2s,text-shadow .2s}
+.desktop-nav a[aria-current="page"],.mobile-nav a[aria-current="page"]{color:var(--nav-gold);text-shadow:0 0 12px #ffd84f55}
+.desktop-nav a:hover,.desktop-nav a:focus-visible,.mobile-nav a:hover,.mobile-nav a:focus-visible{color:var(--nav-gold);text-shadow:0 0 5px var(--nav-glow),0 0 13px #ffd84fcc,0 0 23px #ffd84f80}
+.site-header a:focus-visible,.site-header button:focus-visible{outline-color:var(--nav-gold)}
+.sns-band{border-top:2px solid #d89525}
+@media(prefers-reduced-motion:reduce){.desktop-nav a,.mobile-nav a{transition:none}}
+
+/* White sections, an editorial owner message, and softer photographic overlays. */
+.representative,.company-section,.store.section-pad,.location-section{background:#fff}
+.representative-note{overflow:hidden;background:linear-gradient(135deg,#681c16,#431911);border:0;border-top:3px solid #d89525;border-radius:3px;box-shadow:0 18px 42px #681c161c;text-align:left}
+.representative-note::before{content:"\201C";position:absolute;top:13px;right:24px;font:500 190px/1 var(--company-font);color:#efbc70;opacity:.14;pointer-events:none}
+.representative-note>*{position:relative;z-index:1}
+.representative-note .ceo-message-label{display:flex;align-items:center;gap:14px;color:#efbc70;letter-spacing:.18em}
+.representative-note .ceo-message-label::before{content:"";width:38px;height:1px;background:currentColor;flex:none}
+.representative-note .ceo-catch{color:#fff5e7;font-weight:500;letter-spacing:.01em}
+html:lang(en) .representative-note .ceo-catch{font-style:italic;font-weight:500;letter-spacing:-.02em}
+.representative-note .ceo-message{color:#f6e7d7;border-top-color:#efbc7045;font-weight:400;text-align:left;line-height:2}
+.company-table{background:#fff8ed;border:1px solid #d8952560;border-top:3px solid #d89525;border-radius:16px;box-shadow:0 16px 36px #681c160c}
+.company-table div{border-bottom-color:#e8d7c0}
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.50),rgba(0,0,0,.62)),url("assets/satkar-food-hero.png")}
+.sns-backdrop{background:linear-gradient(90deg,rgba(0,0,0,.80) 0%,rgba(0,0,0,.67) 38%,rgba(0,0,0,.42) 70%,rgba(0,0,0,.20) 100%)}
+@media(min-width:761px) and (max-width:900px){.representative-note .ceo-message{line-height:1.9}}
+@media(max-width:760px){
+ .representative-note{text-align:left;padding:36px 26px}
+ .representative-note::before{font-size:145px;right:14px;top:18px}
+ .representative-note .ceo-catch{font-size:clamp(26px,7.5vw,39px)}
+ .company-table{border-radius:13px}
+ .sns-backdrop{background:linear-gradient(90deg,rgba(0,0,0,.80),rgba(0,0,0,.64) 48%,rgba(0,0,0,.32))}
+}
+
+/* Readability and a compact, burgundy-and-gold language control. */
+.hero-scrim{background:linear-gradient(180deg,rgba(0,0,0,.63),rgba(0,0,0,.53) 42%,rgba(0,0,0,.65))}
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.59),rgba(0,0,0,.70)),url("assets/satkar-food-hero.png")}
+.language-switch{min-width:86px;height:38px;gap:3px;padding:4px;border:1px solid #d8952580;border-radius:9px;background:#fff8ed;color:#681c16;box-shadow:0 2px 8px #3616100d;transition:border-color .2s,box-shadow .2s}
+.language-switch:hover{background:#fff8ed;border-color:#d89525;box-shadow:0 2px 10px #d8952526}
+.language-switch .language-globe,.language-switch .language-divider{display:none}
+.language-switch .language-option{display:grid;place-items:center;width:36px;height:28px;margin:0;border-radius:5px;background:transparent;color:#681c16;opacity:.65;font-size:11px;letter-spacing:.04em;transition:background .2s,color .2s}
+.language-switch .language-option.is-active,.language-switch.is-en .language-en,.language-switch:not(.is-en) .language-ja{background:#681c16;color:#ffe5a3;opacity:1;text-decoration:none;box-shadow:0 1px 3px #36161020}
+@media(max-width:760px){
+ .home-store{background-repeat:no-repeat}
+ .values-section{background-image:url("assets/satkar-interior-2.png");background-size:100% 100%;background-position:center;background-repeat:no-repeat}
+ .values-section .section-title{padding-block:8px;background:linear-gradient(90deg,transparent,#fff6e6ed 12%,#fff6e6ed 88%,transparent)}
+ .language-switch{min-width:82px;height:36px;padding:3px}
+ .language-switch .language-option{width:35px;height:28px}
+ .hero .hero-content{width:calc(100% - 24px)}
+ .hero-center{width:100%;max-width:none}
+ .hero h1{font-size:clamp(26px,8.2vw,44px);line-height:1.35;letter-spacing:-.035em}
+ html:lang(en) .hero h1{font-size:clamp(30px,8.4vw,46px);line-height:1.2}
+ html:lang(ja) .hero h1>span{white-space:nowrap;text-indent:.35em}
+ .store-image{height:auto;aspect-ratio:4/5;overflow:hidden}
+ .store-image::before{content:none}
+ .store-image>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+ .booking-grid .booking-card{width:100%;grid-column:auto;justify-self:stretch;min-height:210px}
+}
+
+/* Satkar Morishita: saffron, warm ivory, deep restaurant red, and walnut. */
+:root{--cream:#fff7e9;--paper:#fffdf8;--ink:#7f211c;--ink-deep:#351b17;--orange:#e88a17;--gold:#e3ad3b;--text:#382820;--muted:#74655b;--line:#e6d6bf}
+::selection{background:#8b1e1b;color:#fff8e9}
+:focus-visible{outline-color:#e88a17}
+.site-header.is-scrolled,.site-header.menu-open,body:not([data-page="home"]) .site-header{background:rgba(255,247,233,.98);color:#78211b;box-shadow:0 1px 0 #78211b24}
+.brand-logo{display:block;width:clamp(82px,9vw,112px);height:62px;object-fit:contain;object-position:left center}
+.brand-caption{display:block;font:600 9px/1.35 var(--sans);letter-spacing:.025em;color:inherit;white-space:nowrap}
+.company-brand{display:flex;flex-direction:column;align-items:flex-start;gap:1px;max-width:260px}
+.site-header:not(.is-scrolled) .brand-caption{color:#fff8e9;text-shadow:0 1px 8px #31161088}
+.footer-brand>a:first-child{display:block;width:max-content;max-width:100%;padding:6px;background:#fffdf8;border-radius:4px}
+.footer-logo{display:block;width:156px;max-height:94px;object-fit:contain}
+.footer-brand>p{max-width:260px}
+.site-footer{background:#351b17;color:#fff4e3;border-top:3px solid #e3ad3b}
+.footer-grid h2{color:#f2bf55}
+.hero-image{background-image:url("assets/satkar-food-hero.png");background-position:center 49%}
+.hero-scrim{background:linear-gradient(90deg,rgba(45,19,14,.70),rgba(45,19,14,.40) 50%,rgba(45,19,14,.20)),linear-gradient(0deg,rgba(45,19,14,.32),transparent 45%)}
+.hero-title-accent{color:#ffd27a}
+.hero-buttons .button-primary{background:#b72c20;color:#fff8e9}
+.hero-buttons .button-primary:hover{background:#942018}
+.button-dark{background:#7f211c}
+.button-dark:hover{background:#a63424}
+.text-link,.map-link{color:#922a20}
+.about-stamp{background:#e5aa36;color:#4a2117}
+.subhero-about{background-image:url("assets/satkar-interior-1.png")}
+.subhero-stores{background-image:url("assets/satkar-exterior.png");background-position:center 35%}
+.subhero-reservation{background-image:url("assets/satkar-food-hero.png")}
+.subhero-overlay,.subhero-about .subhero-overlay,.subhero-stores .subhero-overlay{background:linear-gradient(180deg,rgba(48,19,14,.42),rgba(48,19,14,.64))}
+.home-store,.stores-gallery{background:#f8eedc}
+.home-store-card{background:#fffdf8;border:1px solid #d9b97870;box-shadow:0 16px 38px #4c27151a}
+.home-store-card-header{border-bottom-color:#eadcc8}
+.home-store-card-header>.store-wordmark{width:clamp(100px,12vw,136px);max-height:82px}
+.store-wordmark{width:min(100%,194px);aspect-ratio:1.65/1;object-fit:contain}
+.home-store-photo img{object-fit:cover;object-position:center 43%}
+.home-store-feature:not(:last-child){border-bottom:1px solid #eadcc8}
+.home-store-feature h4{color:#78211b}
+.stores-gallery{border-block:1px solid #e6d6bf}
+.values-section{background:radial-gradient(ellipse at 8% 15%,#f5e5c8 0,transparent 40%),radial-gradient(ellipse at 94% 92%,#efe0c8 0,transparent 36%),#fff7e9;border-block:1px solid #e7d3ae}
+.values-section .value-card{background:#fffdf8;border-color:#e4d2b5;box-shadow:0 12px 25px #592b1510}
+.value-card svg{stroke:#a64426}
+.value-card h3{color:#76231c}
+.representative-profile img{aspect-ratio:1136/1386;object-fit:cover;object-position:center top;background:#f3eadf;border-radius:8px}
+.representative-profile h2{font-size:clamp(19px,2.1vw,28px);line-height:1.5;word-break:keep-all}
+.representative-note{aspect-ratio:auto;display:block;min-height:0;background:#fffdf8;border-left:4px solid #dca83b;box-shadow:0 16px 40px #681c160b}
+.representative-note .ceo-message{font-size:15px;line-height:1.95}
+.representative-note .ceo-message p{margin:0 0 14px}
+.representative-note .ceo-message p:last-child{margin-bottom:0}
+.representative-note .ceo-catch{color:#76231c}
+.representative-note .ceo-message-label{color:#a44927}
+.store-description{margin:18px 0 24px;line-height:1.9;color:var(--text)}
+.sns-band{background-image:url("assets/satkar-interior-1.png");background-position:center 53%}
+.sns-backdrop{background:#351b17c9}
+.sns-line{background:#f1a52b;color:#351b17;border:1px solid #fff4dc80}
+.sns-line:hover{background:#ffd27a;color:#351b17}
+.facebook-mark{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#1877f2;color:#fff;font:bold 22px/1 Arial,sans-serif}
+.home-reservation{background-image:url("assets/satkar-food-hero.png");background-position:center 54%}
+.home-reservation::before{background:#351b17b8}
+.reservation-background{background-image:linear-gradient(180deg,rgba(53,27,23,.66),rgba(53,27,23,.82)),url("assets/satkar-food-hero.png")}
+.booking-section{background:linear-gradient(90deg,rgba(53,27,23,.88),rgba(53,27,23,.78)),url("assets/satkar-food-hero.png") center/cover;color:#fff7e9}
+.booking-intro,.delivery-intro{color:#fff4e3}
+.booking-card{background:#fffdf8}
+.booking-card.telephone .booking-action{background:#7f211c;color:#fff8e9}
+.booking-card.tabelog .booking-action{background:#e4a22b;color:#351b17}
+.booking-card.gurunavi .booking-action{background:#a32325;color:#fff}
+.delivery-card.uber .delivery-action{background:#16864a;color:white}
+.delivery-card.demae .delivery-action{background:#d63a1d;color:white}
+.delivery-card.rocket .delivery-action{background:#263f39;color:white}
+.location-section{background:#f5ead8}
+@media(max-width:760px){
+ .brand-logo{width:78px;height:52px}
+ .brand-caption{font-size:8px}
+ .company-brand{max-width:54%}
+ .footer-logo{width:140px}
+ .representative-profile img{width:min(100%,390px);margin-inline:auto}
+ .representative-note{padding:28px 22px}
+ .representative-note .ceo-message{font-size:15px}
+ .store-description{text-align:left}
+ .home-store,.stores-gallery{background:#f8eedc}
+}body:not([data-page="home"]) .brand-caption{color:#78211b;text-shadow:none}
+body[data-page="home"] .site-header:not(.is-scrolled) .brand-caption{color:#fff8e9;text-shadow:0 1px 8px #31161088}
+.representative-note .ceo-message{color:#382820;border-top-color:#e6d6bf}body:not([data-page="home"]) .site-header:not(.is-scrolled) .brand-caption{color:#78211b;text-shadow:none}
+
+/* Deuki company branding and final interaction polish. */
+::selection{background:#b5222b;color:#fff}
+:focus-visible{outline-color:#c62832}
+.site-header,
+.site-header.is-scrolled,
+.site-header.menu-open,
+body:not([data-page="home"]) .site-header,
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open){background:#fff!important;color:#66201d;box-shadow:0 1px 0 #66201d1a}
+.site-header .mobile-nav{background:#fff;color:#66201d}
+.company-brand{max-width:none;flex:none;align-items:flex-start;gap:0;color:#66201d}
+.company-brand .company-wordmark,.footer-brand>a:first-child .company-wordmark{display:flex;flex-direction:column;gap:1px;font-family:var(--company-font);letter-spacing:0}
+.company-brand .company-title{font:600 italic clamp(18px,1.8vw,24px)/1.05 var(--company-font);letter-spacing:0}
+.company-brand .company-name-suffix{font:600 10px/1.3 var(--sans);letter-spacing:.12em;color:#8b292c}
+.footer-brand>a:first-child{display:inline-flex;width:max-content;max-width:100%;padding:0;background:transparent;border-radius:0;color:#fff0e5}
+.footer-brand>a:first-child .company-title{font:500 italic clamp(36px,4vw,52px)/1.1 var(--company-font);letter-spacing:0;color:#fff0e5}
+.footer-brand>a:first-child .company-name-suffix{font:500 14px/1.5 var(--sans);letter-spacing:.16em;color:#f1b0a8}
+.brand-logo,.footer-logo,.brand-caption{display:none}
+.site-footer{background:linear-gradient(135deg,#641b25 0%,#48151e 52%,#2e1119 100%);border-top:3px solid #a73a43}
+.footer-grid h2{color:#f1c7bd}
+.desktop-nav a,.mobile-nav a{transition:color .2s,text-shadow .2s}
+.desktop-nav a[aria-current="page"],.mobile-nav a[aria-current="page"]{color:#ba202d;text-shadow:0 0 12px #d52b3d4d}
+.desktop-nav a:hover,.desktop-nav a:focus-visible,.mobile-nav a:hover,.mobile-nav a:focus-visible{color:#c41e30;text-shadow:0 0 5px #e83f4d80,0 0 13px #df263955}
+.site-header a:focus-visible,.site-header button:focus-visible{outline-color:#c62832}
+.language-switch{min-width:150px;height:42px;gap:7px;padding:5px 8px;border:1px solid #a7393e55;border-radius:999px;background:#fff;color:#74252a;box-shadow:0 3px 12px #6d202012;transition:border-color .2s,box-shadow .2s,background .2s}
+.language-switch:hover{background:#fff8f7;border-color:#ba2633;box-shadow:0 4px 15px #ba263326}
+.language-switch .language-option{display:grid;place-items:center;width:62px;height:30px;margin:0;border-radius:999px;background:transparent;color:#74252a;opacity:.74;font:600 12px/1 var(--sans);letter-spacing:0;text-decoration:none;transition:background .2s,color .2s,opacity .2s}
+.language-switch .language-option.is-active,.language-switch.is-en .language-en,.language-switch:not(.is-en) .language-ja{background:#8f202a;color:#fff;opacity:1;text-decoration:none;box-shadow:0 2px 6px #57151a35}
+.language-switch .language-divider,.language-switch .language-globe{display:none}
+.hero-buttons .button{border-radius:0}
+.sns-backdrop{background:rgba(0,0,0,.68)}
+.sns-line{background:#1877f2;color:#fff;border:1px solid #1877f2}
+.sns-line:hover{background:#0866d9;color:#fff;border-color:#0866d9}
+.facebook-mark{background:#fff;color:#1877f2}
+.about-visual{padding:12px;margin:0 18px 0 0;background:#3b211b;border:1px solid #d5a55f;border-radius:0;box-shadow:12px 14px 0 #71212722,0 18px 40px #3616101c}
+.about-visual::before{content:"";position:absolute;z-index:2;inset:20px;border:1px solid #f3dfbd80;pointer-events:none}
+.about-visual>img{border-radius:0}
+.about-photo-signature{right:23px;bottom:23px;width:auto;padding:12px 16px;background:#3b211bef;border:1px solid #e5bd78;color:#fff3df;border-radius:0;box-shadow:0 6px 18px #0004;font:600 10px/1.3 var(--sans);letter-spacing:.15em}
+.about-photo-signature span{display:block;margin-top:3px;font-size:11px;letter-spacing:.08em}
+@media(max-width:760px){
+ .company-brand{max-width:46%;white-space:normal}
+ .company-brand .company-title{font-size:clamp(13px,3.7vw,18px)}
+ .company-brand .company-name-suffix{font-size:8px}
+ .language-switch{min-width:126px;height:36px;padding:3px 5px;gap:3px}
+ .language-switch .language-option{width:54px;height:28px;font-size:10px}
+ .about-visual{margin:0 12px 34px 0;padding:9px}
+ .about-visual::before{inset:15px}
+ .about-photo-signature{right:17px;bottom:17px;padding:9px 11px;font-size:8px}
+}
+@media(max-width:390px){
+ .company-brand{max-width:43%}
+ .company-brand .company-title{font-size:12px}
+ .company-brand .company-name-suffix{font-size:7px}
+ .language-switch{min-width:116px}
+ .language-switch .language-option{width:49px;font-size:9px}
+}
+
+/* Follow-up visual pass: coordinated burgundy framing and balanced editorial sections. */
+.sns-band{border-top:2px solid #8b2531;border-bottom:2px solid #8b2531}
+.home-store{background:radial-gradient(ellipse at 12% 15%,#f2dfcf 0,transparent 38%),linear-gradient(135deg,#f8eddd,#efe0d0)}
+.home-store-card{max-width:1120px;margin-inline:auto;background:transparent;border:0;box-shadow:none;overflow:visible}
+.home-store-card-header{position:relative;z-index:1;min-height:104px;gap:24px;padding:20px clamp(24px,4vw,48px);background:linear-gradient(110deg,#701d2a,#461721 72%,#351319);border:1px solid #8f3b41;border-bottom:3px solid #c89258;box-shadow:0 14px 30px #42131d26;color:#fff4e9}
+.home-store-card-header>.store-wordmark{width:clamp(120px,13vw,160px);height:auto;max-height:60px;padding:4px 6px;background:#fffaf2;border:1px solid #e7cba0;border-radius:2px;object-fit:contain}
+.home-store-card-header .store-kicker{color:#edc17d}
+.home-store-card-header h3{color:#fff4e9;font-size:clamp(1.2rem,2vw,1.65rem);letter-spacing:.025em}
+.home-store-card-body{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);min-height:500px;padding:15px;background:#fffaf2;border:1px solid #d8bda7;border-top:0;box-shadow:0 24px 46px #42131d1b}
+.home-store-photo{position:relative;min-height:0;height:auto;padding:12px;background:linear-gradient(145deg,#6b1c29,#38131b)}
+.home-store-photo img{position:relative;inset:auto;display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center 42%;border:1px solid #e4bc85}
+.home-store-card-content{justify-content:space-evenly;padding:20px clamp(24px,3.6vw,44px);background:#fffaf2}
+.home-store-feature{counter-increment:home-feature;min-height:106px;margin:0;padding:16px 0 16px 56px;border-bottom:1px solid #dfcfc1}
+.home-store-card-content{counter-reset:home-feature}
+.home-store-feature::before{top:18px;bottom:auto;left:0;width:38px;height:38px;display:grid;place-items:center;transform:none;border:1px solid #bd7c5f;border-radius:50%;background:#6e1d29;color:#fff0df;font:600 11px/1 var(--sans);letter-spacing:.08em;content:"0" counter(home-feature)}
+.home-store-feature h4{color:#68202b;font-size:16px}
+.home-store-feature p{color:#594741;font-size:13px;line-height:1.85}
+.home-store-feature:last-child{border-bottom:0}
+.about-copy{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:clamp(344px,36vw,446px);padding-block:8px}
+.about-copy .section-title{margin:0;line-height:1.3}
+.about-copy .body-copy{margin:0;line-height:2}
+.about-copy .text-link{align-self:flex-start}
+.representative-grid{--representative-photo-height:clamp(500px,40vw,590px);grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(30px,5vw,72px);align-items:start}
+.representative-profile img{width:100%;height:var(--representative-photo-height);aspect-ratio:auto;object-fit:cover;object-position:center 22%;border:8px solid #6c202b;border-radius:0;background:#f1e7dc;box-shadow:0 14px 28px #40151b1a}
+.representative-profile p{margin:14px 0 4px;font-size:11px;line-height:1.6;color:#9a3a43}
+.representative-profile h2{font-size:clamp(17px,1.7vw,22px);line-height:1.45}
+.representative-note{height:var(--representative-photo-height);min-height:0;max-width:none;padding:clamp(28px,3.2vw,44px);justify-content:flex-start;border-top:3px solid #b4454a;background:linear-gradient(135deg,#641b25,#39131d);box-shadow:0 18px 42px #40151b24}
+.representative-note .ceo-message-label{margin-bottom:12px;font-size:10px}
+.representative-note .ceo-catch{font-size:clamp(27px,2.7vw,36px);line-height:1.25;margin-bottom:16px}
+html:lang(en) .representative-note .ceo-catch{font-size:clamp(30px,3vw,40px);line-height:1.15}
+.representative-note .ceo-message{padding-top:12px;font-size:12.5px;line-height:1.72}
+.representative-note .ceo-message p{margin:0 0 8px}
+.representative-note .ceo-message p:last-child{margin-bottom:0}
+.representative-note .ceo-catch{color:#fff2e6}
+.representative-note .ceo-message{color:#f6e7d7;border-top-color:#efbc7066}
+.values-section{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 0,#8c2e3a 0,#5a1a26 40%,#38131d 100%);border-block:1px solid #a04a4d;padding-block:clamp(58px,7vw,92px)}
+.values-section::before{content:"";position:absolute;z-index:-1;inset:0;opacity:.14;background:repeating-linear-gradient(135deg,transparent 0 34px,#f4cfad 35px,#f4cfad 36px,transparent 37px 72px);pointer-events:none}
+.values-section::after{content:none}
+.values-section .section-title{margin-bottom:42px;color:#fff2e6}
+.values-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,38px);counter-reset:values}
+.values-section .value-card{counter-increment:values;position:relative;min-height:0;padding:24px 12px 22px;border:0;border-top:1px solid #e4b5a077;border-bottom:1px solid #e4b5a077;background:transparent;box-shadow:none;text-align:center}
+.values-section .value-card::before{display:block;margin-bottom:12px;color:#edc17d;font:600 11px/1 var(--sans);letter-spacing:.2em;content:"0" counter(values)}
+.values-section .value-card svg{width:48px;height:48px;margin:0 auto 15px;stroke:#f0bd79;stroke-width:1.8}
+.values-section .value-card h3{margin:0 0 10px;color:#fff2e6;font-size:18px}
+.values-section .value-card p{max-width:30ch;margin-inline:auto;color:#f0ded2;font-size:12px;line-height:1.9}
+.store.section-pad{padding-block:clamp(32px,4vw,52px)}
+.store-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);align-items:stretch;gap:0;background:#fffaf2;border:1px solid #d7bda7;box-shadow:0 18px 42px #4a1b2112}
+.store-image{height:clamp(360px,38vw,470px);min-height:0;padding:12px;background:linear-gradient(145deg,#70202d,#3b141d)}
+.store-image img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:center 58%;border:1px solid #e2bb85}
+.store-details{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,3vw,40px)}
+.store-details h3{font-size:clamp(1.45rem,2vw,2rem);line-height:1.4;margin-bottom:10px;color:#68202b}
+.store-details dl{margin:0 0 18px;border-top:1px solid #e5d3c3}
+.store-details dl div{padding:8px 0;border-bottom:1px solid #e5d3c3;font-size:12px;line-height:1.55}
+.store-identity p{margin:4px 0 14px;color:#8f4448}
+.store-details .button{align-self:flex-start}
+.stores-gallery{padding-block:40px 56px;background:linear-gradient(180deg,#f4e7d7,#fff9ef)}
+.stores-gallery .gallery-heading{margin-bottom:20px}
+.stores-gallery .gallery-stage{position:relative;width:min(100% - 8vw,1000px);aspect-ratio:16/8.5;margin:0 auto;border:11px solid #67202b;outline:1px solid #c89a62;outline-offset:4px;background:#3b141d;box-shadow:0 18px 40px #43151c33}
+.stores-gallery .gallery-stage::before{content:"";position:absolute;z-index:4;inset:8px;border:1px solid #f1d5ae88;pointer-events:none}
+.gallery-slide::after{content:none}
+.gallery-slide span{display:none}
+.gallery-arrow{border-color:#fff5e4;background:#641b25d9;color:#fff4e8}
+.gallery-arrow:hover{background:#9b2d39;color:#fff}
+.gallery-dots button.is-active{background:#e1ad68}
+.gallery-dots button{background:#fff9}
+.map-card{border-radius:2px;background:#6a202c;padding:10px;border-color:#c99a65;box-shadow:0 18px 42px #42161c24}
+.map-card .map-frame{border-radius:0;border-color:#f1d4a7}
+.map-card iframe{border:0}
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.84)),url("assets/satkar-food-hero.png")}
+.booking-section{background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.78)),url("assets/satkar-food-hero.png") center/cover;color:#fff7e9}
+.delivery-card.uber .delivery-action{background:#06c167;color:#062b1a;border:0}
+.delivery-card.demae .delivery-action{background:#f12b14;color:#fff;border:0}
+.delivery-card.rocket .delivery-action{background:#fff;color:#171717;border:1px solid #d8d8d8}
+@media(max-width:900px){
+ .home-store-card-body{min-height:460px}
+ .home-store-photo{min-height:430px}
+ .representative-grid{--representative-photo-height:520px;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:28px}
+ .representative-note{padding:26px}
+ .representative-note .ceo-catch{font-size:26px}
+ .representative-note .ceo-message{font-size:11.5px;line-height:1.65}
+}
+@media(max-width:760px){
+ .home-store-card-header{justify-content:flex-start;text-align:left;padding:17px 18px}
+ .home-store-card-header>.store-wordmark{width:clamp(100px,29vw,142px);max-height:48px}
+ .home-store-card-body{grid-template-columns:1fr;min-height:0;padding:10px}
+ .home-store-photo{height:280px;min-height:0;padding:8px}
+ .home-store-photo img{height:100%;object-position:center 48%}
+ .home-store-card-content{padding:15px 15px 10px;text-align:left}
+ .home-store-feature{min-height:0;padding:13px 0 13px 48px;text-align:left}
+ .home-store-feature::before{top:15px;left:0;width:32px;height:32px;transform:none}
+ .home-store-feature h4{padding:0;text-align:left}
+ .about-copy{min-height:0;gap:18px;justify-content:flex-start;padding:0;text-align:center}
+ .about-copy .text-link{align-self:center}
+ .representative-grid{--representative-photo-height:auto;grid-template-columns:1fr;gap:24px}
+ .representative-profile{width:min(100%,360px);margin-inline:auto;text-align:center}
+ .representative-profile img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+ .representative-note{width:100%;height:auto;min-height:0;padding:28px 24px}
+ .representative-note .ceo-catch{font-size:clamp(24px,6vw,32px);margin-bottom:14px}
+ .representative-note .ceo-message{font-size:13px;line-height:1.8}
+ .values-grid{grid-template-columns:1fr;gap:16px}
+ .values-section .section-title{margin-bottom:25px}
+ .values-section .value-card{display:grid;grid-template-columns:48px 1fr;column-gap:15px;align-items:center;padding:16px 8px;text-align:left}
+ .values-section .value-card::before{grid-column:1/-1;margin:0 0 10px}
+ .values-section .value-card svg{grid-column:1;grid-row:2/4;width:40px;height:40px;margin:0}
+ .values-section .value-card h3{grid-column:2;grid-row:2;margin:0 0 4px}
+ .values-section .value-card p{grid-column:2;grid-row:3;max-width:none;margin:0;font-size:12px}
+ .store.section-pad{padding-block:26px}
+ .store-grid{grid-template-columns:1fr}
+ .store-image{height:300px;padding:9px}
+ .store-details{padding:24px 22px 26px}
+ .store-details .button{align-self:center}
+ .stores-gallery{padding-block:32px 40px}
+ .stores-gallery .gallery-stage{width:calc(100% - 38px);aspect-ratio:4/3;border-width:8px}
+ .stores-gallery .gallery-stage::before{inset:6px}
+ .map-card{padding:7px}
+ .reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.86)),url("assets/satkar-food-hero.png")}
+}
+.delivery-card.rocket .delivery-action{background:#fff;color:#171717;border:0}
+
+/* Light, varied framing and balanced page sections. */
+:root{--frame-ivory:#fffaf1;--frame-saffron:#e2bd78;--frame-sage:#a9b9a1;--frame-clay:#d6a18b;--frame-line:#e8ddca}
+
+/* 1, 2, 4, 8, 9, 11: replace heavy burgundy framing with soft, varied accents. */
+.values-section{padding-block:clamp(54px,6vw,78px);background:linear-gradient(135deg,#fcf6eb,#f4eee3 58%,#edf1e9);border-block:1px solid #e8ddca}
+.values-section::before{content:none}
+.values-section .section-title{color:#71352a;margin-bottom:32px}
+.values-grid{gap:clamp(16px,2.4vw,28px)}
+.values-section .value-card{min-height:190px;padding:24px 20px;border:1px solid #e6dece;border-top:3px solid var(--frame-saffron);border-radius:12px;background:#fffdf8;box-shadow:0 10px 26px #55442a0d;text-align:center}
+.values-section .value-card:nth-child(2){border-top-color:var(--frame-sage);background:#fcfdf9}
+.values-section .value-card:nth-child(3){border-top-color:var(--frame-clay);background:#fffaf7}
+.values-section .value-card::before{display:none}
+.values-section .value-card svg{width:42px;height:42px;margin:0 auto 12px;stroke:#a45a38;stroke-width:1.65}
+.values-section .value-card h3{margin:0 0 8px;color:#563a30;font-size:17px}
+.values-section .value-card p{max-width:31ch;color:#665d52;font-size:12px;line-height:1.8}
+.representative-grid{--representative-photo-height:clamp(440px,37vw,520px);grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+.representative-profile img{height:var(--representative-photo-height);border:6px solid #eee5d7;border-radius:12px;box-shadow:0 14px 30px #58402c12}
+.representative-note{height:var(--representative-photo-height);padding:clamp(22px,2.8vw,36px);justify-content:flex-start;overflow:auto;border:1px solid #e7ddcc;border-left:4px solid #d5ad68;border-radius:12px;background:linear-gradient(135deg,#fffdf8,#f8f3e9);box-shadow:0 14px 30px #58402c0c}
+.representative-note .ceo-message-label{margin:0 0 8px;color:#a56d39;font-size:10px;letter-spacing:.12em}
+.representative-note .ceo-catch{margin:0 0 12px;color:#733d30;font-size:clamp(24px,2.4vw,32px);line-height:1.35}
+html:lang(en) .representative-note .ceo-catch{font-size:clamp(27px,2.7vw,36px)}
+.representative-note .ceo-message{padding-top:12px;border-top:1px solid #e9decb;color:#51463c;font-size:11.5px;line-height:1.65}
+.representative-note .ceo-message p{margin:0 0 7px}
+.representative-note .ceo-message p:last-child{margin-bottom:0}
+.home-store{background:linear-gradient(135deg,#faf4e9,#f0eee5 64%,#edf1e8)}
+.home-store-card{max-width:1060px;overflow:hidden;border:1px solid #e5dccb;border-radius:16px;background:#fffdf8;box-shadow:0 16px 34px #493b2912}
+.home-store-card-header{min-height:86px;gap:20px;padding:14px clamp(20px,3vw,34px);border:0;border-bottom:1px solid #e9dfcf;border-radius:0;background:linear-gradient(100deg,#f9f1e3,#f2f4ed);box-shadow:none;color:#493b32}
+.home-store-card-header>.store-wordmark{width:clamp(100px,11vw,132px);max-height:56px;padding:3px;background:#fff;border:1px solid #e4dbc9;border-radius:8px}
+.home-store-card-header .store-kicker{color:#a2703e}
+.home-store-card-header h3{color:#57392f;font-size:clamp(1.1rem,1.8vw,1.45rem)}
+.home-store-card-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);height:350px;min-height:0;padding:12px;gap:20px;background:#fffdf8;border:0;box-shadow:none}
+.home-store-photo{height:100%;min-height:0;padding:0;overflow:hidden;border-radius:10px;background:#e8e5d8}
+.home-store-photo img{width:100%;height:100%;min-height:0;border:0;border-radius:10px;object-fit:cover;object-position:center 44%}
+.home-store-card-content{justify-content:center;gap:0;padding:8px clamp(16px,2.6vw,30px);background:#fffdf8}
+.home-store-feature{min-height:0;padding:13px 0 13px 48px;border-bottom:1px solid #eee5d8}
+.home-store-feature::before{top:14px;left:0;width:32px;height:32px;border:1px solid #dfcda8;border-radius:50%;background:#f4ead5;color:#856044}
+.home-store-feature h4{color:#594033;font-size:14px}
+.home-store-feature p{color:#6a6055;font-size:12px;line-height:1.7}
+.about-copy .body-copy{line-height:1.9}
+.about-copy .text-link{align-self:flex-start;display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:48px;padding:0 22px;border:1px solid #d8b77d;border-radius:999px;background:#f7edda;color:#684333;font-weight:600;text-decoration:none;box-shadow:0 5px 14px #55442a0c;transition:background .2s,transform .2s,box-shadow .2s}
+.about-copy .text-link:hover{background:#efe0c3;transform:translateY(-1px);box-shadow:0 8px 18px #55442a18}
+.about-copy .text-link span[aria-hidden="true"]{font-size:16px}
+.store-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:0;overflow:hidden;border:1px solid #e3dbc9;border-radius:16px;background:#fffdf8;box-shadow:0 14px 34px #493b2910}
+.store-image{position:relative;display:block;align-self:stretch;height:auto;min-height:450px;padding:11px;background:#eee8dc}
+.store-image::before{content:none}
+.store-image img{position:absolute;inset:11px;width:calc(100% - 22px);height:calc(100% - 22px);min-height:0;border:0;border-radius:10px;object-fit:cover;object-position:center 56%}
+.store-details{padding:clamp(22px,3vw,36px);background:linear-gradient(145deg,#fffdf8,#f7f2e8)}
+.store-details h3{color:#654337;font-size:clamp(1.35rem,1.9vw,1.75rem)}
+.store-details .button-dark{background:#a15f3c;color:#fffaf1;border-radius:999px}
+.store-details .button-dark:hover{background:#84472f}
+.location-section{background:linear-gradient(135deg,#f7f2e8,#eef1e9)}
+.location-intro .section-title{color:#704b39}
+.location-intro .section-title::after{background:#d8b879}
+.location-intro p{color:#5c5146}
+.map-card{padding:10px;border:1px solid #d8c99f;border-radius:18px;background:#f5efdf;box-shadow:0 16px 34px #4c42320e}
+.map-card .map-frame{overflow:hidden;border:1px solid #fffdf8;border-radius:11px}
+.stores-gallery{padding-block:40px 56px;background:linear-gradient(180deg,#f3f0e8,#faf6ed)}
+.stores-gallery .gallery-stage{width:min(100% - 8vw,1000px);aspect-ratio:16/8.5;border:8px solid #f8f3e8;outline:1px solid #c8b991;outline-offset:4px;border-radius:14px;background:#ebe5d8;box-shadow:0 16px 34px #47392916}
+.stores-gallery .gallery-stage::before{inset:7px;border:1px solid #ffffffb0;border-radius:7px}
+.gallery-arrow{border:1px solid #fff;background:#fffdf1e8;color:#79523c;box-shadow:0 3px 12px #29201624}
+.gallery-arrow:hover{background:#e9d8b8;color:#593d2f}
+.gallery-dots button.is-active{background:#b88b4e}
+.gallery-dots button{background:#fffdf1}
+
+/* 3: a single brightened image and overlay spans both reservation sections. */
+.reservation-background{position:relative;isolation:isolate;background-image:linear-gradient(180deg,rgba(38,30,23,.2),rgba(38,30,23,.34)),url("assets/satkar-food-hero.png");background-position:center;background-size:cover;background-repeat:no-repeat}
+.booking-section,.delivery-section{background:transparent;color:#fffaf1}
+.booking-section .section-title,.delivery-section .section-title{color:#fffaf1}
+.booking-intro,.delivery-intro{color:#fff8ec}
+.booking-card{border:1px solid #eee2d0;box-shadow:0 12px 30px #21170e24}
+
+/* 5: keep the SNS rule as thick as the separator above the footer. */
+.sns-band{border-top:3px solid #d6bd8e;border-bottom:3px solid #d6bd8e}
+
+/* 12: transparent landing header over a full-height hero; opaque after scrolling. */
+body[data-page="home"] .hero{height:100svh;min-height:100svh;max-height:none}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open){background:transparent!important;color:#fff;box-shadow:none}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .company-brand{color:#fff}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .company-title{color:#fff;text-shadow:0 1px 8px #29170c88}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .company-name-suffix{color:#fff4dc}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .desktop-nav a{color:#fff;text-shadow:0 1px 6px #29170c88}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .desktop-nav a[aria-current="page"]{color:#ffe0a0}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .language-switch{background:#fffdf0e8;border-color:#fff8}
+body[data-page="home"] .site-header.is-scrolled,body[data-page="home"] .site-header.menu-open{background:#fffdf8!important;color:#604134;box-shadow:0 1px 0 #d8cfbd}
+body[data-page="home"] .site-header.is-scrolled .company-title,body[data-page="home"] .site-header.menu-open .company-title{color:#604134;text-shadow:none}
+
+@media(max-width:900px){
+ .representative-grid{--representative-photo-height:480px;gap:22px}
+ .representative-note{padding:20px}
+ .representative-note .ceo-message{font-size:10.5px;line-height:1.58}
+ .home-store-card-body{height:330px}
+ .home-store-photo{min-height:0}
+}
+@media(max-width:760px){
+ .values-grid{grid-template-columns:1fr;gap:12px}
+ .values-section .value-card{display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:center;min-height:0;padding:16px;border-radius:10px;text-align:left}
+ .values-section .value-card svg{grid-column:1;grid-row:1/3;width:36px;height:36px;margin:0}
+ .values-section .value-card h3{grid-column:2;grid-row:1;margin:0 0 3px}
+ .values-section .value-card p{grid-column:2;grid-row:2;max-width:none;margin:0;font-size:12px}
+ .representative-grid{--representative-photo-height:auto;grid-template-columns:1fr;gap:20px}
+ .representative-profile{width:min(100%,340px)}
+ .representative-profile img{height:auto;aspect-ratio:4/5}
+ .representative-note{width:100%;height:auto;max-height:none;padding:22px;border-radius:10px}
+ .representative-note .ceo-message{font-size:12px;line-height:1.75}
+ .home-store-card{border-radius:13px}
+ .home-store-card-body{height:auto;grid-template-columns:1fr;padding:9px;gap:4px}
+ .home-store-photo{height:235px;min-height:0}
+ .home-store-card-content{padding:8px 12px 4px}
+ .home-store-feature{padding:12px 0 12px 44px}
+ .home-store-feature::before{top:12px}
+ .about-copy .text-link{align-self:center}
+ .store-grid{grid-template-columns:1fr}
+ .store-image{height:300px;min-height:300px;padding:9px}
+ .store-image img{inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-position:center 52%}
+ .store-details{padding:22px}
+ .stores-gallery .gallery-stage{width:calc(100% - 34px);aspect-ratio:4/3;border-width:6px}
+ .stores-gallery .gallery-stage::before{inset:5px}
+ .map-card{padding:7px;border-radius:13px}
+ .reservation-background{background-attachment:scroll;background-image:linear-gradient(180deg,rgba(38,30,23,.2),rgba(38,30,23,.34)),url("assets/satkar-food-hero.png")}
+ body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .company-title{color:#fff}
+}
+
+/* Follow-up refinements from the latest review. */
+/* 1: matching burgundy rules above and below the SNS band. */
+.sns-band{border-top:3px solid #8b2531;border-bottom:3px solid #8b2531}
+
+/* 2: restore a more generous scale to the homepage store feature (+20%). */
+.home-store-card-body{height:420px}
+@media(max-width:900px){.home-store-card-body{height:396px}}
+@media(max-width:760px){.home-store-photo{height:282px}}
+
+/* 3: spice illustration on ivory, with one consistent card surface. */
+.values-section{background-color:#fbf5e9;background-image:linear-gradient(180deg,rgba(255,251,243,.12),rgba(255,251,243,.18)),url("assets/values-culinary-bg-v2.png");background-position:center;background-size:cover;background-repeat:no-repeat}
+.values-section .value-card,.values-section .value-card:nth-child(2),.values-section .value-card:nth-child(3){background:#fffdf8!important}
+.values-section .value-card{border-top-color:#d9b36e}
+.values-section .value-card:nth-child(2){border-top-color:#d9b36e}
+.values-section .value-card:nth-child(3){border-top-color:#d9b36e}
+
+/* 4: a subtle black tint, retaining the food photo detail. */
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.28)),url("assets/satkar-food-hero.png")}
+@media(max-width:760px){.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.28)),url("assets/satkar-food-hero.png")}}
+
+/* 5: restrained lift, press, and focus motion for reservation and delivery actions. */
+.button,.booking-card,.delivery-card,.gallery-arrow{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease,background-color .22s ease}
+.booking-card,.delivery-card{will-change:transform}
+.booking-card:hover,.delivery-card:hover{transform:translateY(-4px) scale(1.012);box-shadow:0 16px 30px #20160e38;filter:saturate(1.05)}
+.button:hover{transform:translateY(-3px);box-shadow:0 9px 20px #28190f2b}
+.booking-card:active,.delivery-card:active,.button:active{transform:translateY(0) scale(.985);box-shadow:0 4px 12px #20160e2b}
+.booking-card:focus-visible,.delivery-card:focus-visible,.button:focus-visible{outline:3px solid #f1c36f;outline-offset:3px}
+.booking-action>span:last-child,.delivery-action>span:last-child{display:inline-block;transition:transform .2s ease}
+.booking-card:hover .booking-action>span:last-child,.delivery-card:hover .delivery-action>span:last-child{transform:translate(2px,-2px)}
+@media(hover:none),(pointer:coarse){.booking-card:hover,.delivery-card:hover{transform:none;box-shadow:0 8px 20px #0002;filter:none}.booking-card:active,.delivery-card:active,.button:active{transform:scale(.985)}}
+@media(prefers-reduced-motion:reduce){.button,.booking-card,.delivery-card,.gallery-arrow,.booking-action>span:last-child,.delivery-action>span:last-child{transition:none!important;will-change:auto}}
+
+/* 6: enlarge the about heading slightly and let the copy fill its image column. */
+.about-copy .section-title{font-size:clamp(2.15rem,4vw,3.5rem);line-height:1.32}
+.about-copy .body-copy{font-size:clamp(15px,1.28vw,17px);line-height:2.1}
+.about-copy .text-link{min-height:52px;padding-inline:26px}
+@media(max-width:760px){.about-copy .section-title{font-size:clamp(2rem,7.4vw,2.7rem)}}
+
+/* Latest review refinements. */
+/* 1: keep the portrait frame dimensions while showing more of the source photo. */
+.representative-profile img{object-fit:contain;object-position:center center;background:#e9ebed}
+
+/* 2: clean white map section. */
+.location-section{background:#fff}
+
+/* 3: keep hover content crisp and add a one-pass light sweep instead of scaling/filtering. */
+@keyframes actionShine{from{transform:translateX(-155%)}to{transform:translateX(155%)}}
+.booking-card,.delivery-card,.button{position:relative;isolation:isolate;overflow:hidden}
+.booking-card::after,.delivery-card::after,.button::after{content:"";position:absolute;z-index:0;top:-15%;bottom:-15%;left:-45%;width:42%;pointer-events:none;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.04) 30%,rgba(255,255,255,.5) 50%,rgba(255,255,255,.04) 70%,transparent 100%);transform:translateX(-155%)}
+.booking-card>*,.delivery-card>*,.button>*{position:relative;z-index:1}
+.booking-card:hover,.delivery-card:hover{transform:none;filter:none;box-shadow:0 14px 28px #20160e2a}
+.button:hover{transform:none;box-shadow:0 8px 20px #28190f24}
+.booking-card:hover::after,.delivery-card:hover::after,.button:hover::after{animation:actionShine .72s ease-out 1}
+.booking-card:active,.delivery-card:active,.button:active{transform:none;box-shadow:0 4px 12px #20160e20}
+@media(hover:none),(pointer:coarse){.booking-card:hover,.delivery-card:hover,.button:hover{transform:none;filter:none}.booking-card:hover::after,.delivery-card:hover::after,.button:hover::after{animation:none}.booking-card:active::after,.delivery-card:active::after,.button:active::after{animation:actionShine .48s ease-out 1}}
+@media(prefers-reduced-motion:reduce){.booking-card:hover::after,.delivery-card:hover::after,.button:hover::after{animation:none}}
+
+/* 4: raise the reservation page's black overlay by 30 percent. */
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.36)),url("assets/satkar-food-hero.png")}
+@media(max-width:760px){.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.36)),url("assets/satkar-food-hero.png")}}
+
+/* 5 and 6: enlarge the homepage shop feature by another 20 percent and use a white header. */
+.home-store-card-body{height:504px}
+.home-store-card-header{background:#fff}
+@media(max-width:900px){.home-store-card-body{height:475px}}
+@media(max-width:760px){.home-store-card-body{height:auto}.home-store-photo{height:338px}.home-store-card-header{background:#fff}}
+
+/* 7: reduce the home reservation photo overlay by 30 percent. */
+.home-reservation::before{background:rgba(53,27,23,.5)}
+
+/* 8: gold interaction on the transparent home header; retain red on inner pages. */
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .desktop-nav a[aria-current="page"]{color:#ffe09a;text-shadow:0 0 9px rgba(255,207,94,.72)}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .desktop-nav a:hover,body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .desktop-nav a:focus-visible{color:#ffdc85;text-shadow:0 0 6px #f3c456,0 0 16px rgba(239,174,49,.82)}
+body:not([data-page="home"]) .desktop-nav a[aria-current="page"]{color:#ba202d;text-shadow:0 0 10px rgba(213,43,61,.3)}
+body:not([data-page="home"]) .desktop-nav a:hover,body:not([data-page="home"]) .desktop-nav a:focus-visible{color:#c41e30;text-shadow:0 0 5px rgba(232,63,77,.72),0 0 13px rgba(223,38,57,.42)}
+
+/* 9: polished segmented language control with a softly frosted surface. */
+.language-switch{min-width:164px;height:46px;gap:3px;padding:4px;border:1px solid #d9cdbb;border-radius:999px;background:rgba(255,253,248,.94);box-shadow:0 5px 18px rgba(63,39,23,.12),inset 0 1px 0 #fff;backdrop-filter:blur(10px);transition:border-color .2s,box-shadow .2s,background .2s}
+.language-switch:hover{border-color:#bd9d72;box-shadow:0 7px 20px rgba(63,39,23,.16),inset 0 1px 0 #fff}
+.language-switch .language-option{width:74px;height:36px;border-radius:999px;color:#765849;font-size:11px;font-weight:600;letter-spacing:.015em;transition:background .2s,color .2s,box-shadow .2s}
+.language-switch .language-option:not(.is-active):hover{background:#f3ede3;color:#633d32;opacity:1}
+.language-switch .language-option.is-active,.language-switch.is-en .language-en,.language-switch:not(.is-en) .language-ja{background:linear-gradient(135deg,#982832,#701d27);color:#fff9f1;box-shadow:0 2px 8px rgba(99,25,31,.26),inset 0 1px 0 rgba(255,255,255,.22)}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .language-switch{background:rgba(255,253,248,.9);border-color:rgba(255,255,255,.76);box-shadow:0 6px 20px rgba(34,17,10,.18),inset 0 1px 0 #fff}
+
+/* Match the reference reservation-card lift and light-sweep motion. */
+.booking-card,.delivery-card{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,filter .25s;will-change:transform}
+.booking-card::before,.delivery-card::before{content:"";position:absolute;z-index:2;top:0;left:-120%;width:70%;height:100%;pointer-events:none;background:linear-gradient(110deg,transparent,rgba(255,255,255,.5),transparent);transform:skew(-22deg);transition:left .55s ease}
+.booking-card::after,.delivery-card::after{content:none}
+.booking-card:hover,.booking-card:focus-visible,.delivery-card:hover,.delivery-card:focus-visible{transform:translateY(-8px) scale(1.018);box-shadow:0 20px 34px rgba(0,0,0,.32);filter:saturate(1.12)}
+.booking-card:hover::before,.booking-card:focus-visible::before,.delivery-card:hover::before,.delivery-card:focus-visible::before{left:150%}
+.booking-card:hover span,.delivery-card:hover span{letter-spacing:.02em}
+.booking-card:active,.delivery-card:active{transform:translateY(-2px) scale(.985);transition-duration:.08s}
+@media(hover:none),(pointer:coarse){.booking-card:hover,.delivery-card:hover{transform:none;filter:none;box-shadow:0 12px 30px #21170e24}.booking-card:hover::before,.delivery-card:hover::before{left:-120%}.booking-card:active::before,.delivery-card:active::before{left:150%}}
+@media(prefers-reduced-motion:reduce){.booking-card,.delivery-card{transition:none;will-change:auto}.booking-card::before,.delivery-card::before{transition:none}.booking-card:hover,.booking-card:focus-visible,.delivery-card:hover,.delivery-card:focus-visible,.booking-card:active,.delivery-card:active{transform:none}}
+
+/* Latest annotated refinements: readability, culinary gallery art, and language control. */
+.reservation-background{background-image:linear-gradient(180deg,rgba(0,0,0,.234),rgba(0,0,0,.468)),url("assets/satkar-food-hero.png")}
+.booking-section .section-title,.delivery-section .section-title{color:#fff;text-shadow:0 2px 14px #0009}
+.booking-intro,.delivery-intro{color:#fff;text-shadow:0 1px 7px #000c;font-weight:500}
+.stores-gallery{background-color:#fbf5e9;background-image:url("assets/values-culinary-bg-v2.png");background-size:cover;background-position:center;background-repeat:no-repeat}
+.stores-gallery .gallery-heading{position:relative;z-index:1}
+.representative-note .ceo-message-label::before{content:none;display:none}
+
+/* Compact red JP / EN toggle, matching the supplied minimal reference. */
+.language-switch{display:inline-flex;align-items:center;justify-content:center;min-width:74px;width:74px;height:34px;padding:0;gap:0;border:1px solid #8e26334d;border-radius:999px;background:#fff;color:#8e2633;box-shadow:none;backdrop-filter:none;overflow:hidden;transform:none;transition:border-color .2s,background .2s}
+.language-switch:hover{background:#fff8f7;border-color:#8e2633;box-shadow:none;transform:none}
+.language-switch:active{transform:none}
+.language-switch:focus-visible{outline:2px solid #8e2633;outline-offset:4px}
+.language-track{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:72px;height:32px;padding:0;gap:0;border-radius:999px;background:transparent}
+.language-track::before{content:"";position:absolute;top:0;bottom:0;left:0;width:50%;border-radius:999px;background:#8e2633;box-shadow:none;transition:transform .22s ease}
+.language-switch.is-en .language-track::before{transform:translateX(100%)}
+.language-switch .language-option{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:32px;padding:0;margin:0;border-radius:0;font-size:11px;font-weight:600;letter-spacing:.02em;background:transparent;color:#8e2633;opacity:1;box-shadow:none;transition:color .2s}
+.language-switch .language-option.is-active,.language-switch.is-en .language-en,.language-switch:not(.is-en) .language-ja{background:transparent;color:#fff;box-shadow:none;opacity:1}
+.language-switch .language-option:not(.is-active):hover{background:transparent;color:#8e2633;opacity:1}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .language-switch{background:#ffffff0f;border-color:#ffffffa6;color:#fff;box-shadow:none;backdrop-filter:none}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .language-switch .language-option{color:#fff}
+body[data-page="home"] .site-header:not(.is-scrolled):not(.menu-open) .language-switch:hover{background:#ffffff20;border-color:#fff;box-shadow:none}
+
+/* Only small line drawings decorate the gallery; the slideshow stays the focus. */
+.stores-gallery{position:relative;isolation:isolate;overflow:hidden;background:#fffdf8;background-image:none}
+.stores-gallery::before,.stores-gallery::after{content:"";position:absolute;z-index:0;inset:auto;width:150px;height:116px;pointer-events:none;background:url("assets/gallery-spice-line.svg") center/contain no-repeat;opacity:.38}
+.stores-gallery::before{left:24px;bottom:18px}
+.stores-gallery::after{right:24px;top:18px;transform:rotate(15deg)}
+.stores-gallery .gallery-heading,.stores-gallery .gallery-stage{position:relative;z-index:1}
+.gallery-play-toggle{position:absolute;z-index:3;right:16px;bottom:15px;display:grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid #fff;border-radius:50%;background:#fffdf1e8;color:#79523c;box-shadow:0 3px 12px #29201624;cursor:pointer;font-size:16px;line-height:1;transition:background .2s}
+.gallery-play-toggle:hover{background:#e9d8b8}
+
+@media(max-width:760px){
+ .store-grid{grid-template-columns:minmax(0,1fr)}
+ .store-grid .store-image{width:100%;max-width:none;height:clamp(300px,82vw,370px);min-height:0;aspect-ratio:auto;margin:0;padding:9px;justify-self:stretch}
+ .store-grid .store-image>img{position:absolute;inset:9px;width:calc(100% - 18px);height:calc(100% - 18px);object-fit:cover;object-position:center 52%}
+ .language-switch{min-width:74px;width:74px;height:34px;padding:0;border-radius:999px}
+ .language-track{width:72px;height:32px}
+ .language-switch .language-option{height:32px;font-size:11px}
+ .header-inner .company-brand{position:relative;left:auto;transform:none;max-width:52%;margin-right:auto}
+ .header-inner{justify-content:space-between}
+ .header-actions{position:relative;right:auto}
+ .stores-gallery{background:#fffdf8;background-image:none}
+ .stores-gallery::after{display:none}
+ .stores-gallery::before{left:6px;bottom:4px;width:90px;height:70px;opacity:.26}
+ .gallery-play-toggle{right:11px;bottom:11px;width:30px;height:30px}
+}
+@media(prefers-reduced-motion:reduce){.language-track::before,.language-switch,.language-switch .language-option{transition:none}}
+.stores-gallery{--gallery-spice-accent:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22140%22%20viewBox%3D%220%200%20180%20140%22%20fill%3D%22none%22%20stroke%3D%22%23b69273%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cg%20transform%3D%22translate%2833%2031%29%20rotate%28-20%29%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h73v13H0zM6%204h61M6%209h61%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M3%2019h76v12H3zM9%2023h65M9%2027h65%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20transform%3D%22translate%28126%2084%29%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%2845%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%2890%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%28135%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%28180%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%28225%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%28270%29%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0-25c7%209%208%2016%200%2025-8-9-7-16%200-25Z%22%20transform%3D%22rotate%28315%29%22%2F%3E%0A%20%20%20%20%3Ccircle%20r%3D%223%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cpath%20d%3D%22M37%20108q17-12%2030-9M39%20114q17-12%2030-9%22%2F%3E%0A%20%20%3Cellipse%20cx%3D%2279%22%20cy%3D%22110%22%20rx%3D%224%22%20ry%3D%222%22%20transform%3D%22rotate%28-32%2079%20110%29%22%2F%3E%0A%20%20%3Cellipse%20cx%3D%2289%22%20cy%3D%22104%22%20rx%3D%224%22%20ry%3D%222%22%20transform%3D%22rotate%28-32%2089%20104%29%22%2F%3E%0A%3C%2Fsvg%3E%0A")}
+.stores-gallery::before,.stores-gallery::after{background-image:var(--gallery-spice-accent);opacity:.45}
+
+/* Soft beige and a few additional spice drawings around the gallery. */
+.stores-gallery{background:#f7f0e5;background-image:none}
+.gallery-ornament{position:absolute;z-index:0;display:block;width:140px;height:110px;background:var(--gallery-spice-accent) center/contain no-repeat;opacity:.42;pointer-events:none}
+.gallery-ornament-left{left:46px;top:160px;transform:rotate(17deg)}
+.gallery-ornament-right{right:44px;bottom:165px;transform:rotate(-28deg)}
+
+/* A smaller location heading frees room for a slightly larger, proportional map. */
+.location-section.section-pad{padding-block:40px 44px}
+.location-intro{max-width:900px;margin-bottom:22px}
+.location-intro .section-title{font-size:clamp(32px,3.25vw,48px);line-height:1.3;margin-bottom:10px;letter-spacing:.05em}
+.location-intro .section-title::after{width:46px;height:2px;margin-top:10px}
+.location-intro p:not(.eyebrow){font-size:18px;line-height:1.65;margin:0}
+.map-card{width:min(100%,1120px);padding:8px;border-radius:17px}
+.map-card .map-frame{height:clamp(340px,34vw,480px);border-radius:10px}
+@media(max-width:1100px){.gallery-ornament{display:none}}
+@media(max-width:760px){.stores-gallery{background:#f7f0e5;background-image:none}.location-section.section-pad{padding-block:32px 36px}.location-intro{margin-bottom:18px}.location-intro .section-title{font-size:clamp(28px,6.7vw,32px)}.location-intro p:not(.eyebrow){font-size:15px}.map-card{width:100%;padding:6px;border-radius:13px}.map-card .map-frame{height:340px;border-radius:8px}}
+
+/* Muted culinary sketches add character only along the gallery margins. */
+.stores-gallery{--gallery-bowl:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22190%22%20height%3D%22150%22%20viewBox%3D%220%200%20190%20150%22%20fill%3D%22none%22%20stroke%3D%22%23a78c73%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M34%2070c5%2030%2024%2045%2059%2046%2035%200%2056-17%2062-46%22%20fill%3D%22%23ddc3a4%22%20fill-opacity%3D%22.3%22%2F%3E%0A%20%3Cellipse%20cx%3D%2294%22%20cy%3D%2270%22%20rx%3D%2262%22%20ry%3D%2217%22%20fill%3D%22%23d8b389%22%20fill-opacity%3D%22.25%22%2F%3E%0A%20%3Cpath%20d%3D%22M39%2072c15%2011%2094%2013%20111-1M73%20116l-5%208h52l-5-8M34%2077c-17-11-21%208-3%2013M155%2077c17-9%2020%207%203%2013%22%2F%3E%0A%20%3Cpath%20d%3D%22M52%2065c5-3%2010-3%2015-1m47%2010%2015-2m-47%208%2012%201%22%20opacity%3D%22.65%22%2F%3E%0A%20%3Cpath%20d%3D%22M81%2058c2-14%206-21%2017-27-2%2011-5%2018-17%2027Zm2-6c-11%201-17-3-20-11%2010-2%2016%201%2020%2011Zm4-10c5-9%2011-12%2019-10-4%208-10%2011-19%2010Z%22%20fill%3D%22%23a6af91%22%20fill-opacity%3D%22.35%22%20stroke%3D%22%23969d84%22%2F%3E%0A%20%3Cpath%20d%3D%22M88%2026c-8-11%207-15%200-25M111%2036c-6-9%206-13%202-23%22%20opacity%3D%22.4%22%2F%3E%0A%20%3Cpath%20d%3D%22M25%20134c34%205%20103%205%20138-1%22%20opacity%3D%22.35%22%2F%3E%0A%3C%2Fsvg%3E%0A");--gallery-herb:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22140%22%20height%3D%22190%22%20viewBox%3D%220%200%20140%20190%22%20fill%3D%22none%22%20stroke%3D%22%23979a82%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M46%20173c17-29%2029-64%2032-105M52%20153c-7-17-13-27-22-35M64%20124c15-14%2028-20%2042-25M72%2098c-10-18-18-29-31-39M77%2079c8-17%2017-27%2029-34%22%2F%3E%0A%20%3Cg%20fill%3D%22%23afb59b%22%20fill-opacity%3D%22.24%22%3E%0A%20%20%3Cpath%20d%3D%22M30%20119c-13%206-24-2-25-14%209-1%2013%203%2016%209-11-13-11-24-3-33%2010%207%2013%2018%2010%2029%202-14%209-22%2020-21%202%2014-3%2026-18%2030Z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M105%20101c-8-8-10-19-1-27%209%205%2011%2012%208%2021%203-15%2010-21%2022-18-1%2015-9%2025-23%2026%2011%200%2016%206%2015%2016-12%202-19-4-21-18Z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M42%2061c-15%205-23-3-23-15%2010-1%2015%203%2018%209-8-12-7-23%202-31%2010%2010%2011%2020%204%2031%208-9%2017-9%2025-3-5%2012-14%2015-26%209Z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M105%2047c-6-11-1-24%2010-29%207%2012%204%2023-10%2029Z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M78%2069c-9-9-8-24%201-32%2010%2010%209%2023-1%2032Z%22%2F%3E%0A%20%3C%2Fg%3E%0A%20%3Cpath%20d%3D%22m45%20175%208%202M15%20175c9%203%2019%202%2025-2%22%20opacity%3D%22.45%22%2F%3E%0A%3C%2Fsvg%3E%0A");--gallery-chilli:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22150%22%20height%3D%22180%22%20viewBox%3D%220%200%20150%20180%22%20fill%3D%22none%22%20stroke%3D%22%23b08d7b%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M40%2033c29%202%2041%2027%2036%2053-5%2024-23%2043-51%2053%2022-26%2026-43%2013-66-9-16-13-34%202-40Z%22%20fill%3D%22%23c5a08c%22%20fill-opacity%3D%22.24%22%2F%3E%0A%20%3Cpath%20d%3D%22M36%2035c-1-13%204-23%2016-29M32%2040l19%202M42%2049c17%2018%2020%2034%2010%2052%22%20opacity%3D%22.7%22%2F%3E%0A%20%3Cpath%20d%3D%22M101%2066c24%2010%2029%2029%2017%2046-11%2017-28%2026-51%2032%2024-17%2029-32%2024-48-5-14-1-25%2010-30Z%22%20fill%3D%22%23d2baa0%22%20fill-opacity%3D%22.24%22%2F%3E%0A%20%3Cpath%20d%3D%22M99%2066c-1-14%205-21%2016-22M95%2071l14%205M101%2081c6%2011%203%2026-6%2035%22%20opacity%3D%22.65%22%2F%3E%0A%20%3Cg%20stroke%3D%22%23aa9a7c%22%20fill%3D%22%23c7bea6%22%20fill-opacity%3D%22.28%22%3E%0A%20%20%3Cellipse%20cx%3D%2256%22%20cy%3D%22159%22%20rx%3D%227%22%20ry%3D%2212%22%20transform%3D%22rotate%2835%2056%20159%29%22%2F%3E%0A%20%20%3Cellipse%20cx%3D%2279%22%20cy%3D%22161%22%20rx%3D%226%22%20ry%3D%2210%22%20transform%3D%22rotate%28-18%2079%20161%29%22%2F%3E%0A%20%20%3Cpath%20d%3D%22m50%20169%2013-21m13%204%205%2019%22%2F%3E%0A%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A");--gallery-mortar:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22190%22%20height%3D%22145%22%20viewBox%3D%220%200%20190%20145%22%20fill%3D%22none%22%20stroke%3D%22%23a9957c%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%3Cpath%20d%3D%22M49%2058c-3%2040%2010%2055%2040%2057%2028%202%2044-17%2044-57%22%20fill%3D%22%23c4b7a4%22%20fill-opacity%3D%22.25%22%2F%3E%0A%20%3Cellipse%20cx%3D%2291%22%20cy%3D%2258%22%20rx%3D%2244%22%20ry%3D%2212%22%20fill%3D%22%23d8c6a6%22%20fill-opacity%3D%22.23%22%2F%3E%0A%20%3Cpath%20d%3D%22M71%20115l-5%208h49l-7-10M56%2072c1%2024%2012%2033%2029%2035%22%20opacity%3D%22.7%22%2F%3E%0A%20%3Cpath%20d%3D%22m86%2054%2023-41c3-6%2013-2%2010%205L99%2058%22%20fill%3D%22%23cebba2%22%20fill-opacity%3D%22.25%22%2F%3E%0A%20%3Cpath%20d%3D%22M77%2051c4-4%209-4%2013-2m14%2012%2012-4%22%2F%3E%0A%20%3Cg%20fill%3D%22%23c6aa7b%22%20fill-opacity%3D%22.3%22%3E%3Ccircle%20cx%3D%22139%22%20cy%3D%22100%22%20r%3D%224%22%2F%3E%3Ccircle%20cx%3D%22153%22%20cy%3D%22113%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%22136%22%20cy%3D%22117%22%20r%3D%223%22%2F%3E%3Ccircle%20cx%3D%22164%22%20cy%3D%22103%22%20r%3D%223%22%2F%3E%3C%2Fg%3E%0A%20%3Cpath%20d%3D%22M19%20111c6-12%2012-20%2023-18-1%2012-10%2019-23%2018Zm9-5%209-9%22%20fill%3D%22%23c2c1a3%22%20fill-opacity%3D%22.24%22%2F%3E%0A%20%3Cpath%20d%3D%22M26%20131c29%205%2084%205%20126-1%22%20opacity%3D%22.4%22%2F%3E%0A%3C%2Fsvg%3E%0A")}
+.stores-gallery::before{left:28px;bottom:16px;width:130px;height:175px;background-image:var(--gallery-herb);opacity:.48;transform:rotate(-12deg)}
+.stores-gallery::after{right:27px;top:26px;width:155px;height:125px;background-image:var(--gallery-mortar);opacity:.42;transform:rotate(7deg)}
+.gallery-ornament-left{left:36px;top:155px;width:165px;height:135px;background-image:var(--gallery-bowl);opacity:.44;transform:rotate(-8deg)}
+.gallery-ornament-right{right:43px;bottom:115px;width:125px;height:170px;background-image:var(--gallery-chilli);opacity:.42;transform:rotate(12deg)}
+@media(max-width:1100px){.gallery-ornament{display:none}}
+@media(max-width:760px){.stores-gallery::before{left:8px;bottom:8px;width:80px;height:110px;opacity:.3}.stores-gallery::after{display:none}}
+@media(max-width:1300px){.gallery-ornament{display:none}.stores-gallery::before{left:14px;width:85px;height:125px}.stores-gallery::after{right:14px;width:105px;height:95px}}
+@media(max-width:760px){.stores-gallery::before{left:24px;bottom:4px;width:65px;height:40px;background-image:var(--gallery-bowl);opacity:.34}}

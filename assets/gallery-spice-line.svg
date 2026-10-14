@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="140" viewBox="0 0 180 140" fill="none" stroke="#b69273" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(33 31) rotate(-20)">
+    <path d="M0 0h73v13H0zM6 4h61M6 9h61"/>
+    <path d="M3 19h76v12H3zM9 23h65M9 27h65"/>
+  </g>
+  <g transform="translate(126 84)">
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(45)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(90)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(135)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(180)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(225)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(270)"/>
+    <path d="M0-25c7 9 8 16 0 25-8-9-7-16 0-25Z" transform="rotate(315)"/>
+    <circle r="3"/>
+  </g>
+  <path d="M37 108q17-12 30-9M39 114q17-12 30-9"/>
+  <ellipse cx="79" cy="110" rx="4" ry="2" transform="rotate(-32 79 110)"/>
+  <ellipse cx="89" cy="104" rx="4" ry="2" transform="rotate(-32 89 104)"/>
+</svg>
